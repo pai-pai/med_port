@@ -22,6 +22,7 @@ group :development, :test do
     gem "sqlite3"
     gem "rspec-rails", "~> 2.11.0"
     gem "taps", "~> 0.3.24"
+    gem "factory_girl_rails", :require => false
 end
 
 group :development do
@@ -29,7 +30,6 @@ group :development do
 end
 
 group :test do
-    gem "factory_girl", "~> 3.5.0"
     gem "capybara"
     gem "database_cleaner"
 end
