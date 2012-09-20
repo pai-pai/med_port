@@ -20,7 +20,7 @@ end
 
 group :development, :test do
     gem "sqlite3"
-    gem "rspec-rails", "~> 2.10.0"
+    gem "rspec-rails", "~> 2.11.0"
     gem "taps", "~> 0.3.24"
 end
 
@@ -30,5 +30,6 @@ end
 
 group :test do
     gem "factory_girl", "~> 3.5.0"
-    gem "webrat", "~> 0.7.3"
+    gem "capybara"
+    gem "database_cleaner"
 end

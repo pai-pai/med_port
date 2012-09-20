@@ -1,4 +1,10 @@
 MedPort::Application.routes.draw do
+  get "categories/new"
+
+  get "categories/edit"
+
+  get "categories/destroy"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
