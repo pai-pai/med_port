@@ -1,26 +1,40 @@
 require 'spec_helper'
 
 describe CategoriesController do
-
-  describe "GET 'new'" do
-    it "returns http success" do
-      get 'new'
-      response.should be_success
+    it "should get index" do
+        get :index
+        response.should be_success
     end
-  end
 
-  describe "GET 'edit'" do
-    it "returns http success" do
-      get 'edit'
-      response.should be_success
+    it "assign all categories to @categories" do
+        category = FactoryGirl.create(:category)
+        get :index
+        assigns(:categories).should eq([category])
     end
-  end
 
-  describe "GET 'destroy'" do
-    it "returns http success" do
-      get 'destroy'
-      response.should be_success
+    it "should get new" do
+        get :new
+        response.should be_success
     end
-  end
 
+    describe "actions with category" do
+        before(:each) do
+            @category = FactoryGirl.create(:category)
+        end
+
+        it "should get edit" do
+            get :edit, :id => @category
+            response.should be_success
+        end
+
+        it "should get show" do
+            get :show, :id => @category
+            response.should be_success
+        end
+
+        it "should get destroy" do
+            get :destroy, :id => @category
+            response.should be_success
+        end
+    end
 end

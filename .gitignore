@@ -6,8 +6,8 @@ tmp/**/*
 tmp/*
 coverage/*
 #config/database.yml
-config/app_config.yml
+#config/app_config.yml
 config/*.sphinx.conf
 config/initializers/development_mail.rb
 db/sphinx
-public/assets
+#public/assets

@@ -247,3 +247,11 @@ ru:
         pm: вечера
         errors:
             <<: *errors
+    shared:
+        title: ! 'Медицинский портал Нижнего Новгорода'
+        no_info: ! 'Нет данных для отображения.'
+    spravochnik:
+        title: Справочник
+        categories: Разделы
+        abc: Алфавитный указатель
+        tags: Тэги
