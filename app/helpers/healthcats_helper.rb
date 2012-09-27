@@ -1,0 +1,2 @@
+module HealthcatsHelper
+end
