@@ -1,5 +1,4 @@
 class PagesController < ApplicationController
-    def sprav_health
-        @categories = Category.all
+    def home
     end
 end

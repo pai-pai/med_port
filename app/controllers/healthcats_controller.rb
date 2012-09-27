@@ -1,13 +1,40 @@
 class HealthcatsController < ApplicationController
-  def index
-  end
+    def index
+        @healthcats = Healthcat.all
+    end
 
-  def new
-  end
+    def new
+        @healthcat = Healthcat.new
+    end
 
-  def edit
-  end
+    def create
+        @healthcat = Healthcat.new(params[:healthcat])
+        if params[:cancel_button] || @healthcat.save
+            redirect_to root_path
+        else
+            render :new
+        end
+    end
 
-  def destroy
-  end
+    def edit
+        @healthcat = Healthcat.find(params[:id])
+    end
+
+    def update
+        @healthcat = Healthcat.find(params[:id])
+        if params[:cancel_button] || @healthcat.update_attributes(params[:healthcat])
+            redirect_to :index
+        else
+            render :edit
+        end
+    end
+
+    def show
+        @healthcat = Healthcat.find(params[:id])
+    end
+
+    def destroy
+        @healthcat = Healthcat.find(params[:id])
+        @healthcat.destroy
+    end
 end

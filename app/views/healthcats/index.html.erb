@@ -1,2 +1,24 @@
-<h1>Healthcats#index</h1>
-<p>Find me in app/views/healthcats/index.html.erb</p>
+<% content_for :title do %>
+    <%= t('.title') %>
+<% end %>
+
+<div id="page_content">
+    <div class="header">
+        <h2><%= t('spravochnik.title') %></h2>
+        <%= render 'shared/headers/spravochnik' %>
+    </div>
+
+    <div class="content">
+        <% if @healthcats.blank? %>
+            <p><%= t('shared.no_info') %></p>
+        <% else %>
+            <% @healthcats.each_slice((@healthcats.size/3.0).ceil) do |slice| %>
+                <ul class="cat_column">
+                    <% slice.each do |cat| %>
+                        <li>cat.name</li>
+                    <% end %>
+                </ul>
+            <% end %>
+        <% end %>
+    </div>
+</div>
