@@ -1,4 +1,6 @@
 class HealthcatsController < ApplicationController
+    load_and_authorize_resource
+
     def index
         @healthcats = Healthcat.all
     end
