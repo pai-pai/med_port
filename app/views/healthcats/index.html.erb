@@ -3,22 +3,25 @@
 <% end %>
 
 <div id="page_content">
-    <div class="header">
-        <h2><%= t('spravochnik.title') %></h2>
-        <%= render 'shared/headers/spravochnik' %>
-    </div>
+    <%= render 'shared/headers/spravochnik' %>
 
     <div class="content">
+        <% if can? :create, :healthcat %>
+            <div class="control_panel top"><%= link_to t('shared.healthcat.add_new'), new_healthcat_path %></div>
+        <% end %>
         <% if @healthcats.blank? %>
             <p><%= t('shared.no_info') %></p>
         <% else %>
             <% @healthcats.each_slice((@healthcats.size/3.0).ceil) do |slice| %>
                 <ul class="cat_column">
                     <% slice.each do |cat| %>
-                        <li>cat.name</li>
+                        <li><%= link_to cat.name, cat %></li>
                     <% end %>
                 </ul>
             <% end %>
+        <% end %>
+        <% if can? :create, :healthcat %>
+            <div class="control_panel bottom"><%= link_to t('shared.healthcat.add_new'), new_healthcat_path %></div>
         <% end %>
     </div>
 </div>

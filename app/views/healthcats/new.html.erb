@@ -1,2 +1,11 @@
-<h1>Healthcats#new</h1>
-<p>Find me in app/views/healthcats/new.html.erb</p>
+<% content_for :title do %>
+    <%= t('.title') %>
+<% end %>
+
+<div id="page_content">
+    <h2><%= t('.title') %></h2>
+
+    <div class="content">
+        <%= render "form" %>
+    </div>
+</div>

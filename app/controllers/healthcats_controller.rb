@@ -12,7 +12,7 @@ class HealthcatsController < ApplicationController
     def create
         @healthcat = Healthcat.new(params[:healthcat])
         if params[:cancel_button] || @healthcat.save
-            redirect_to root_path
+            redirect_to healthcats_path
         else
             render :new
         end
@@ -25,7 +25,7 @@ class HealthcatsController < ApplicationController
     def update
         @healthcat = Healthcat.find(params[:id])
         if params[:cancel_button] || @healthcat.update_attributes(params[:healthcat])
-            redirect_to :index
+            redirect_to healthcats_path
         else
             render :edit
         end
@@ -36,7 +36,7 @@ class HealthcatsController < ApplicationController
     end
 
     def destroy
-        @healthcat = Healthcat.find(params[:id])
-        @healthcat.destroy
+        Healthcat.find(params[:id]).destroy
+        redirect_to healthcats_path
     end
 end

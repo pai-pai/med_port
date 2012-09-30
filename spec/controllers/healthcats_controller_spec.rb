@@ -1,6 +1,8 @@
 require 'spec_helper'
 
 describe HealthcatsController do
+    render_views
+
     before(:each) do
         @user = FactoryGirl.create(:user)
         @healthcat = FactoryGirl.build(:healthcat)
@@ -87,10 +89,11 @@ describe HealthcatsController do
             response.should be_success
         end
 
-        it "should not get destroy" do
+        it "should get destroy" do
             @healthcat.save
-            get :destroy, :id => @healthcat
-            response.should be_success
+            expect {
+				delete :destroy, {:id => @healthcat.id}
+            }.to change(Healthcat, :count).by(-1)
         end
     end
 end

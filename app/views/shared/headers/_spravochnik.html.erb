@@ -1,7 +1,10 @@
-<div class="cats_tabs">
-    <ul>
-        <li><%= link_to t('spravochnik.categories') %></li>
-        <li><%= link_to t('spravochnik.abc') %></li>
-        <li><%= link_to t('spravochnik.tags') %></li>
-    </ul>
+<div class="header">
+    <h2><%= t('spravochnik.title') %></h2>
+    <div class="cats_tabs">
+        <ul>
+            <li><%= link_to t('spravochnik.categories'), sprav_health_cats_path %></li>
+            <li><%= link_to t('spravochnik.abc') %></li>
+            <li><%= link_to t('spravochnik.tags') %></li>
+        </ul>
+    </div>
 </div>

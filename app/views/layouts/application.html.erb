@@ -11,11 +11,8 @@
         <%= csrf_meta_tags %>
     </head>
     <body>
-        <% if content_for?(:head) %>
-            <%= yield :head %>
-        <% else %>
-            <%= render 'shared/header' %>
-        <% end %>
+        <%= render 'shared/top_nav' %>
+        <%= content_for?(:head) ? yeld(:head) : (render "shared/header") %>
         <%= yield %>
     </body>
 </html>
