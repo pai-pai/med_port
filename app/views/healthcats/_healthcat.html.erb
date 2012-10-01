@@ -1,16 +1,28 @@
 <% if can? :update, :healthcat %>
     <div class="control_panel top">
-        <%= link_to t('shared.healthcat.edit'), edit_healthcat_path %>
-        <%= link_to t('shared.healthcat.delete'), @healthcat, :method => :delete if can? :destroy, :healthcat %>
+        <%= link_to t('shared.actions.edit'), edit_healthcat_path %>
+        <%= link_to t('shared.actions.delete'), @healthcat, :method => :delete if can? :destroy, :healthcat %>
     </div>
 <% end %>
-<div class="raw">
-    <div class="name"></div> 
-    <div></div>
-</div>
-<% if @healthcat.parent_healthcat_id %>
+<% if not @healthcat.description.blank? %>
     <div class="raw">
-        <div class="name"></div> 
-        <div></div>
+        <div class="name"><%= t('shared.healthcat.description') %></div> 
+        <div><%= @healthcat.description %></div>
+    </div>
+<% end %>
+<% if not @healthcat.parent_healthcat_id.blank? %>
+    <div class="raw">
+        <div class="name"><%= t('shared.healthcat.parent_healthcat_id') %></div> 
+        <div><%= link_to @healthcat.parent_healthcat.name, @healthcat.parent_healthcat %></div>
+    </div>
+<% end %>
+<% if not @child_healthcats.blank? %>
+    <div class="raw">
+        <div class="name"><%= t('shared.healthcat.childrens_list') %></div>
+        <ul class="subcats">
+            <% @child_healthcats.each do |child| %>
+                <li><%= link_to child.name, child %></li>
+            <% end %>
+        </ul>
     </div>
 <% end %>

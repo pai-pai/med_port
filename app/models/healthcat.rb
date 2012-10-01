@@ -8,4 +8,12 @@ class Healthcat < ActiveRecord::Base
     scope :may_be_a_parent, lambda { where('parent_healthcat_id IS ?', nil).order(:name) }
 
     validates_presence_of :name
+
+    def parent_healthcat
+        self.class.find_by_id(parent_healthcat_id)
+    end
+
+    def child_healthcats
+        self.class.find_all_by_parent_healthcat_id(id)
+    end
 end

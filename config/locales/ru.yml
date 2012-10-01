@@ -250,20 +250,22 @@ ru:
     shared:
         title: ! 'Медицинский портал Нижнего Новгорода'
         no_info: ! 'Нет данных для отображения.'
+        actions:
+            edit: Редактировать
+            delete: Удалить
+            save: Сохранить
+            cancel: Отменить
         healthcat:
             add_new: Добавить раздел
             name: Название раздела
             description: Краткое описание
             gender: Ограничение по полу
             parent_healthcat_id: Родительский раздел
+            childrens_list: Подразделы
             bodyparts: Охватываемые части тела
         genders:
             male: мужской
             female: женский
-    form:
-        actions:
-            save: Сохранить
-            cancel: Отменить
     spravochnik:
         title: Справочник
         categories: Разделы

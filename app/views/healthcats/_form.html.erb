@@ -16,7 +16,7 @@
         <%= f.select :gender, Healthcat.genders, :include_blank => true %>
     </div>
     <div class="action">
-        <%= f.submit t('form.actions.save'), {:class => "submit_button"} %>
-        <%= submit_tag t('form.actions.cancel'), {:name => 'cancel_button', :class => "submit_button"} %>
+        <%= f.submit t('shared.actions.save'), {:class => "submit_button"} %>
+        <%= submit_tag t('shared.actions.cancel'), {:name => 'cancel_button', :class => "submit_button"} %>
     </div>
 <% end %>
