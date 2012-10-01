@@ -1,0 +1,16 @@
+<% if can? :update, :healthcat %>
+    <div class="control_panel top">
+        <%= link_to t('shared.healthcat.edit'), edit_healthcat_path %>
+        <%= link_to t('shared.healthcat.delete'), @healthcat, :method => :delete if can? :destroy, :healthcat %>
+    </div>
+<% end %>
+<div class="raw">
+    <div class="name"></div> 
+    <div></div>
+</div>
+<% if @healthcat.parent_healthcat_id %>
+    <div class="raw">
+        <div class="name"></div> 
+        <div></div>
+    </div>
+<% end %>

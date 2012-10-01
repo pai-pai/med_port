@@ -11,6 +11,10 @@
         <%= f.label t('shared.healthcat.parent_healthcat_id') %>
         <%= f.collection_select :parent_healthcat_id, Healthcat.may_be_a_parent, :id, :name, :include_blank => true %>
     </div>
+    <div class="field">
+        <%= f.label t('shared.healthcat.gender') %>
+        <%= f.select :gender, Healthcat.genders, :include_blank => true %>
+    </div>
     <div class="action">
         <%= f.submit t('form.actions.save'), {:class => "submit_button"} %>
         <%= submit_tag t('form.actions.cancel'), {:name => 'cancel_button', :class => "submit_button"} %>

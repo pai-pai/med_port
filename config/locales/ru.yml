@@ -254,9 +254,12 @@ ru:
             add_new: Добавить раздел
             name: Название раздела
             description: Краткое описание
-            gender_id: Ограничение по полу
+            gender: Ограничение по полу
             parent_healthcat_id: Родительский раздел
             bodyparts: Охватываемые части тела
+        genders:
+            male: мужской
+            female: женский
     form:
         actions:
             save: Сохранить
@@ -299,8 +302,11 @@ ru:
             send_reset_password_instructions: Получить инструкцию для сброса пароля
     healthcats:
         index:
-            title: Справочник заполеваний
+            title: Справочник заболеваний
         new:
             title: Добавление раздела
         edit:
             title: Редактирование раздела
+    genders:
+        index:
+            title: Пол

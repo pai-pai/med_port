@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120928092314) do
+ActiveRecord::Schema.define(:version => 20121001111606) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(:version => 20120928092314) do
     t.string   "name"
     t.text     "description"
     t.integer  "parent_healthcat_id"
-    t.integer  "gender_id"
+    t.string   "gender"
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
   end
