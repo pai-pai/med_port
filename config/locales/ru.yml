@@ -136,6 +136,7 @@ ru:
             not_a_number: не является числом
             not_an_integer: не является целым числом
             not_a_string: не может содержать цифры
+            not_saved: Невозможно сохранить данные!
             odd: может иметь лишь четное значение
             record_invalid: ! 'Возникли ошибки: %{errors}'
             taken: уже существует
@@ -267,7 +268,7 @@ ru:
             male: мужской
             female: женский
     spravochnik:
-        title: Справочник
+        title: Справочник заболеваний
         categories: Разделы
         abc: Алфавитный указатель
         tags: Тэги
@@ -309,6 +310,7 @@ ru:
             title: Добавление раздела
         edit:
             title: Редактирование раздела
-    genders:
-        index:
-            title: Пол
+    activerecord:
+        attributes:
+            user:
+                password: Пароль
