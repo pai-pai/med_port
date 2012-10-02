@@ -1,0 +1,27 @@
+@import "twitter/bootstrap";
+
+.add-margin-bottom (@height: @baseFontSize) {
+    margin-bottom: @height;
+}
+
+.header {
+    margin-bottom: @gridGutterWidth/2; 
+}
+
+.show_group {
+    margin-bottom: @baseFontSize*2;
+}
+
+.control_panel {
+    line-height: @baseFontSize*2;
+    .add-margin-bottom(@baseFontSize/2);
+}
+
+.navbar-inner {
+    .border-radius(0);
+}
+
+.no_link, .no_link:hover, .no_link:active {
+    color: #333;
+    text-decoration: none;
+}

@@ -3,16 +3,27 @@
     <head>
         <title><%= t('shared.title') %>
             <% if content_for?(:title) %>
-                 | <%= yield :title %>
+                  · <%= yield :title %>
             <% end %>
         </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <%= stylesheet_link_tag "application", :media => "all" %>
         <%= javascript_include_tag "application" %>
         <%= csrf_meta_tags %>
     </head>
     <body>
         <%= render 'shared/top_nav' %>
-        <%= content_for?(:head) ? yeld(:head) : (render "shared/header") %>
-        <%= yield %>
+        <div class="container">
+            <div class="row header">
+                <header>
+                    <div class="span12">
+                        <%= content_for?(:head) ? yeld(:head) : (render "shared/header") %>
+                    </div>
+                </header>
+            </div>
+            <div class="row">
+                <%= yield %>
+            </div>
+        </div>
     </body>
 </html>

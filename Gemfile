@@ -3,6 +3,8 @@ source 'https://rubygems.org'
 gem "rails", "3.2.6"
 gem "rails-i18n"
 gem "jquery-rails"
+gem "therubyracer"
+gem "less-rails-bootstrap"
 gem "kaminari"
 gem "devise"
 gem "cancan"

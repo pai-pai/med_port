@@ -2,26 +2,35 @@
     <%= t('.title') %>
 <% end %>
 
-<div id="page_content">
-    <%= render 'shared/headers/spravochnik' %>
 
-    <div class="content">
-        <% if can? :create, :healthcat %>
-            <div class="control_panel top"><%= link_to t('shared.healthcat.add_new'), new_healthcat_path %></div>
-        <% end %>
+<%= render 'shared/headers/spravochnik', :locals => {:hcat => true} %>
+
+<div class="span12">
+    <% if can? :create, :healthcat %>
+        <div class="container control_panel">
+            <ul class="unstyled">
+                <li><%= link_to t('shared.healthcat.add_new'), new_healthcat_path %></li>
+            </ul>
+        </div>
+    <% end %>
+    <div class="row">
         <% if @healthcats.blank? %>
             <p><%= t('shared.no_info') %></p>
         <% else %>
             <% @healthcats.each_slice((@healthcats.size/3.0).ceil) do |slice| %>
-                <ul class="cat_column">
-                    <% slice.each do |cat| %>
-                        <li><%= link_to cat.name, cat %></li>
-                    <% end %>
-                </ul>
+                <div class="span4">
+                    <ul class="unstyled">
+                        <% slice.each do |cat| %>
+                            <li><%= link_to cat.name, cat %></li>
+                        <% end %>
+                    </ul>
+                </div>
             <% end %>
         <% end %>
-        <% if can? :create, :healthcat %>
-            <div class="control_panel bottom"><%= link_to t('shared.healthcat.add_new'), new_healthcat_path %></div>
-        <% end %>
     </div>
+    <% if can? :create, :healthcat %>
+        <div class="container control_panel">
+            <%= link_to t('shared.healthcat.add_new'), new_healthcat_path %>
+        </div>
+    <% end %>
 </div>

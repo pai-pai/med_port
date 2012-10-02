@@ -5,20 +5,19 @@
     </div>
 <% end %>
 <% if not @healthcat.description.blank? %>
-    <div class="raw">
-        <div class="name"><%= t('shared.healthcat.description') %></div> 
+    <div class="show_group">
         <div><%= @healthcat.description %></div>
     </div>
 <% end %>
 <% if not @healthcat.parent_healthcat_id.blank? %>
-    <div class="raw">
-        <div class="name"><%= t('shared.healthcat.parent_healthcat_id') %></div> 
+    <div class="show_group">
+        <h5><%= t('shared.healthcat.parent_healthcat_id') %></h5> 
         <div><%= link_to @healthcat.parent_healthcat.name, @healthcat.parent_healthcat %></div>
     </div>
 <% end %>
 <% if not @child_healthcats.blank? %>
-    <div class="raw">
-        <div class="name"><%= t('shared.healthcat.childrens_list') %></div>
+    <div class="show_group">
+        <h5><%= t('shared.healthcat.childrens_list') %></h5>
         <ul class="subcats">
             <% @child_healthcats.each do |child| %>
                 <li><%= link_to child.name, child %></li>
