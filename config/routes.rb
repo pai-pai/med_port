@@ -4,10 +4,8 @@ MedPort::Application.routes.draw do
     root :to => "pages#home"
 
     resources :categories
-    resources :healthcats
+    resources :healthcats, :path => "/zabolevaniya/categories"
     resources :users, :only => [:show, :index]
 
     match "home" => "pages#home", :as => "home"
-
-    match "zabolevaniya/categories" => "healthcats#index", :as => "sprav_health_cats"
 end

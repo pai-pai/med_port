@@ -3,7 +3,20 @@
 <% end %>
 
 <div class="span12">
-    <h2><%= @healthcat.name %></h2>
-
+    <table>
+        <tbody>
+            <tr>
+                <td><h2><%= @healthcat.name %></h2></td>
+                <% if can? :update, :healthcat %>
+                    <td class="modify">
+                        <div class="control_panel">
+                            <%= link_to t('shared.actions.edit'), edit_healthcat_path %>
+                            <%= link_to t('shared.actions.delete'), @healthcat, :method => :delete if can? :destroy, :healthcat %>
+                        </div>
+                    </td>
+                <% end %>
+            </tr>
+        </tbody>
+    </table>
     <%= render "healthcat" %>
 </div>

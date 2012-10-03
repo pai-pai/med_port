@@ -1,4 +1,5 @@
 ru:
+    alphabet: абвгдеёжзийклмнопрстуфхцчшщьыъэюя 
     date:
         abbr_day_names:
         - Вс
