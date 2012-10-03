@@ -1,6 +1,4 @@
 class Healthcat < ActiveRecord::Base
-    require "iconv"
-
     attr_accessible :name, :translated_name, :description, :parent_healthcat_id, :gender
 
     cattr_accessor :genders do
@@ -17,6 +15,10 @@ class Healthcat < ActiveRecord::Base
 
     def child_healthcats
         self.class.find_all_by_parent_healthcat_id(id)
+    end
+
+    def to_param
+        "#{id}-#{translated_name}"
     end
 
     before_save :childs_gender, :translate_name

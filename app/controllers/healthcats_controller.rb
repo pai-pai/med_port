@@ -1,6 +1,4 @@
 class HealthcatsController < ApplicationController
-    require "iconv"    
-
     load_and_authorize_resource
 
     def index
