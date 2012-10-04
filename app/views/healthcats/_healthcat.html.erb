@@ -16,7 +16,7 @@
         <h5><%= t('shared.healthcat.childrens_list') %></h5>
         <ul class="subcats">
             <% @child_healthcats.each do |child| %>
-                <li><%= link_to child.name, child %></li>
+                <li><%= link_to child.name, show_path( @healthcat.id, @healthcat.translated_name, child.id, child.translated_name) %></li>
             <% end %>
         </ul>
     </div>

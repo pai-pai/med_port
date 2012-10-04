@@ -268,7 +268,7 @@ ru:
         genders:
             male: мужской
             female: женский
-    spravochnik:
+    health_list:
         title: Справочник заболеваний
         categories: Разделы
         abc: Алфавитный указатель

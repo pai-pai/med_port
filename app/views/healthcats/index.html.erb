@@ -2,8 +2,7 @@
     <%= t('.title') %>
 <% end %>
 
-
-<%= render 'shared/headers/spravochnik', :locals => {:hcat => true} %>
+<%= render 'shared/headers/health_list', :locals => {:hcat => true} %>
 
 <div class="span12">
     <% if can? :create, :healthcat %>

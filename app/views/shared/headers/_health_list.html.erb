@@ -1,0 +1,20 @@
+<div class="span12">
+    <div class="row">
+        <div class="span6">
+            <h2><%= t('health_list.title') %></h2>
+        </div>
+        <div class="cats_tabs span6">
+            <ul class="nav nav-pills pull-right">
+                <%= content_tag :li, :class => ('active' if params[:controller] == "healthcats" && params[:action] == "index") do %>
+                    <%= link_to t('health_list.categories'), healthcats_path %></li>
+                <% end %>
+                <%= content_tag :li, :class => ('active' if params[:controller] == "articles" && params[:action] == "index") do %>
+                    <%= link_to t('health_list.abc') %></li>
+                <% end %>
+                <%= content_tag :li, :class => ('active' if params[:controller] == "tags" && params[:action] == "index") do %>
+                    <%= link_to t('health_list.tags') %></li>
+                <% end %>
+            </ul>
+        </div>
+    </div>
+</div>

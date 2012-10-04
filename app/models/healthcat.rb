@@ -21,23 +21,22 @@ class Healthcat < ActiveRecord::Base
         "#{id}-#{translated_name}"
     end
 
-    before_save :childs_gender, :translate_name
+    before_save :set_childs_gender, :set_translate_name
 
     private
-        def childs_gender
+        def set_childs_gender
             self.gender = self.parent_healthcat.gender if not self.parent_healthcat_id.blank?
         end
 
-        def translate_name
+        def set_translate_name
             @decoded = "".encode("cp1251") + self.name
             self.translated_name = translate(@decoded.mb_chars.downcase.gsub(/([(].*[)])/, '').gsub(/( )+/, '-').gsub(/(-)\z/, ''))
         end
 
         def translate(line)
             @parity_array = []
-            @rus_alphabet = "".encode("cp1251") + I18n.t('alphabet')
             @lat_alphabet = [ "a", "b", "v", "g", "d", "e", "e", "zh", "z", "i", "j", "k", "l", "m", "n", "o", "p", "r", "s", "t", "u", "f", "h", "ts", "ch", "sh", "sch", "", "i", "", "e", "u", "ya" ]
-            @rus_alphabet.each_char { |ch| @parity_array << ch }
+            ("".encode("cp1251") + I18n.t('alphabet')).each_char { |ch| @parity_array << ch }
             @ending_hash = Hash[@parity_array.zip(@lat_alphabet)]
             @new_word = ""
             line.each_char do |trans_char|
