@@ -11,4 +11,7 @@ MedPort::Application.routes.draw do
     resources :users, :only => [:show, :index]
 
     match "home" => "pages#home", :as => "home"
+    namespace :admin do
+        match "home" => "pages#home", :as => "home"
+    end
 end

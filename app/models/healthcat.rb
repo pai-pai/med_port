@@ -14,7 +14,7 @@ class Healthcat < ActiveRecord::Base
     end
 
     def child_healthcats
-        self.class.find_all_by_parent_healthcat_id(id)
+        self.class.where('parent_healthcat_id = ?', id).order(:name)
     end
 
     def to_param
