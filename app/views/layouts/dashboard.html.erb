@@ -12,8 +12,9 @@
         <%= csrf_meta_tags %>
     </head>
     <body>
-        <div class="container">
-            <div class="row">
+        <%= render 'shared/top_nav' %>
+        <div class="container-fluid">
+            <div class="row-fluid">
                 <%= yield %>
             </div>
         </div>
