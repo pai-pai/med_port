@@ -13,5 +13,6 @@ MedPort::Application.routes.draw do
     match "home" => "pages#home", :as => "home"
     namespace :admin do
         match "home" => "pages#home", :as => "home"
+        resources :healthcats, :path => "/zabolevaniya/categories"
     end
 end

@@ -12,10 +12,15 @@
         <%= csrf_meta_tags %>
     </head>
     <body>
-        <%= render 'shared/top_nav' %>
-        <div class="container-fluid">
+        <%= render 'admin/shared/top_nav' %>
+        <div id="dashboard" class="container-fluid">
             <div class="row-fluid">
-                <%= yield %>
+                <div class="span3 well">
+                    <%= render 'admin/shared/left_panel' %>
+                </div>
+                <div id="content" class="span9">
+                    <%= yield %>
+                </div>
             </div>
         </div>
     </body>

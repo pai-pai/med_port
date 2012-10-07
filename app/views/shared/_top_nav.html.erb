@@ -1,18 +1,16 @@
 <div class="navbar">
     <div class="navbar-inner">
-        <div class="container">
-            <ul class="nav">
-                <% if user_signed_in? %>
-                    <li><%= link_to t('devise.actions.logout'), destroy_user_session_path, :method => :get %></li>
-                    <li><%= link_to t('devise.actions.edit_account'), edit_user_registration_path %></li>
-                    <% if current_user.try(:admin?) %>
-                        <li><%= link_to t('devise.actions.admin_panel') %></li>
-                    <% end %>
-                <% else %>
-                    <li><%= link_to t('devise.actions.login'), new_user_session_path %></li>
-                    <li><%= link_to t('devise.actions.sign_up'), new_user_registration_path %></li>
+        <ul class="nav">
+            <% if user_signed_in? %>
+                <li><%= link_to t('devise.actions.logout'), destroy_user_session_path, :method => :get %></li>
+                <li><%= link_to t('devise.actions.edit_account'), edit_user_registration_path %></li>
+                <% if current_user.try(:admin?) %>
+                    <li><%= link_to t('devise.actions.admin_panel'), admin_home_path %></li>
                 <% end %>
-            </ul>
-        </div>
+            <% else %>
+                <li><%= link_to t('devise.actions.login'), new_user_session_path %></li>
+                <li><%= link_to t('devise.actions.sign_up'), new_user_registration_path %></li>
+            <% end %>
+        </ul>
     </div>
 </div>

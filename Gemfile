@@ -7,6 +7,7 @@ gem "therubyracer"
 gem "less-rails-bootstrap"
 gem "kaminari"
 gem "devise"
+gem "oauth2"
 gem "cancan"
 
 group :production do

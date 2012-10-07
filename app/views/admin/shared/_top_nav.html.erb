@@ -1,0 +1,10 @@
+<div class="navbar">
+    <div class="navbar-inner">
+        <ul class="nav">
+            <% if current_user.try(:admin?) %>
+                <li><%= link_to t('devise.actions.return'), root_path %></li>
+                <li><%= link_to t('devise.actions.logout'), destroy_user_session_path, :method => :get %></li>
+            <% end %>
+        </ul>
+    </div>
+</div>

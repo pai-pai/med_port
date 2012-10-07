@@ -5,13 +5,13 @@
 <% end %>
 <% if not @child_healthcats.blank? %>
     <div class="show_group">
-        <h5><%= t('healthcats.shared.childrens_list') %></h5>
+        <h5><%= t('shared.healthcat.childrens_list') %></h5>
         <ul class="subcats">
             <% @child_healthcats.each do |child| %>
                 <li><%= link_to child.name, show_path( @healthcat.id, @healthcat.translated_name, child.id, child.translated_name) %></li>
             <% end %>
             <% if can? :create, :healthcat %>
-                <li><%= link_to t('healthcats.shared.add_new'), { :controller => "healthcats", :action => "new", :parent => @healthcat.id } %></li>
+                <li><%= link_to t('shared.healthcat.add_new'), { :controller => "healthcats", :action => "new", :parent => @healthcat.id } %></li>
             <% end %>
         </ul>
     </div>
@@ -19,7 +19,7 @@
     <% if can? :create, :healthcat %>
         <% if @healthcat.parent_healthcat.blank? %>
             <ul class="subcats">
-                <li><%= link_to t('healthcats.shared.add_new'), { :controller => "healthcats", :action => "new", :parent => @healthcat.id } %></li>
+                <li><%= link_to t('shared.healthcat.add_new'), { :controller => "healthcats", :action => "new", :parent => @healthcat.id } %></li>
             </ul>
         <% end %>
     <% end %>

@@ -1,0 +1,62 @@
+<% content_for :title do %>
+    <%= t('.title') %>
+<% end %>
+
+<table width="100%" class="fixed">
+    <tbody>
+        <tr class="header">
+            <td><h3><%= t('healthcats.shared.categories') %></h3></td>
+            <td class="right">
+                <%= link_to t('shared.actions.add.with_icon_html'), new_admin_healthcat_path, :class => "btn btn-primary" %>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<table width="100%" class="table table-hover">
+    <tbody>
+        <% if @healthcats.blank? %>
+            <tr>
+                <td colspan="2"><%= t('shared.no_info') %></td>
+            </tr>
+        <% else %>
+            <tr>
+                <th><%= t('healthcats.shared.name') %></th>
+                <th width="20%"><%= t('shared.created_at') %></th>
+                <th width="5%"></th>
+            </tr>
+            <% @healthcats.each do |cat| %>
+                <tr>
+                    <td><%= link_to cat.name, admin_healthcat_path(cat.id) %></td>
+                    <td><%= l cat.created_at.to_time, :format => :short_date %></td>
+                    <% if not cat.child_healthcats.blank? %>
+                        <td class="display_subcats"><i class="icon-chevron-down pull-right"></i></td>
+                    <% else %>
+                        <td></td>
+                    <% end %>
+                </tr>
+                <% if not cat.child_healthcats.blank? %>
+                    <tr class="subcat">
+                        <td colspan="3">
+                            <div class="slide_panel">
+                                <table width="100%" class="table table-hover">
+                                    <tbody>
+                                        <% cat.child_healthcats.each do |child| %>
+                                            <tr>
+                                                <td class="child">&mdash;&nbsp;&nbsp;<%= link_to child.name, admin_healthcat_path(child.id) %></td>
+                                                <td width="20%"><%= l child.created_at.to_time, :format => :short_date %></td>
+                                                <td width="5%"></td>
+                                            </tr>
+                                        <% end %>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </td>
+                    </tr>
+                <% end %>
+            <% end %>
+        <% end %>
+    </tbody>
+</table>
+<div class="pagination-centered">
+    <%= paginate @healthcats %>
+</div>

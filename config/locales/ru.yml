@@ -246,9 +246,17 @@ ru:
             long: ! '%d %B %Y, %H:%M'
             short: ! '%d %b, %H:%M'
             short_only_time: ! '%H:%M'
+            short_date: ! '%d.%m.%Y, %H:%M'
         pm: вечера
         errors:
             <<: *errors
+    views:
+        pagination:
+            first: "&laquo; First"
+            last: "Last &raquo;"
+            previous: "«"
+            next: "»"
+            truncate: "..."
     shared:
         title: ! 'Медицинский портал Нижнего Новгорода'
         no_info: ! 'Нет данных для отображения.'
@@ -257,22 +265,12 @@ ru:
             delete: Удалить
             save: Сохранить
             cancel: Отменить
-        healthcat:
-            add_new: Добавить раздел
-            name: Название раздела
-            description: Краткое описание
-            gender: Ограничение по полу
-            parent_healthcat_id: Родительский раздел
-            childrens_list: Подразделы
-            bodyparts: Охватываемые части тела
+            add:
+                simple: Добавить
+                with_icon_html: <i class="icon-plus icon-white"></i> <span>Добавить</span>
         genders:
             male: мужской
             female: женский
-    health_list:
-        title: Справочник заболеваний
-        categories: Разделы
-        abc: Алфавитный указатель
-        tags: Тэги
     devise:
         sessions:
             new:
@@ -291,7 +289,8 @@ ru:
             sign_up: Зарегистрироваться 
             edit_account: Изменить параметры учетной записи
             remember_me: Запомнить меня
-            admin_panel: Перейти к административной панели
+            admin_panel: Администрирование
+            return: Перейти на сайт
         common:
             say_hello: Здравствуйте
             password: Пароль
@@ -311,7 +310,46 @@ ru:
             title: Добавление раздела
         edit:
             title: Редактирование раздела
+        shared:
+            title: Справочник заболеваний
+            categories: Разделы
+            abc: Алфавитный указатель
+            tags: Тэги
+            healthcat:
+            add_new: Добавить раздел
+            name: Название раздела
+            description: Краткое описание
+            gender: Ограничение по полу
+            parent_healthcat_id: Родительский раздел
+            childrens_list: Подразделы
+            bodyparts: Охватываемые части тела
+    bodyparts:
+        index:
+            title: Список частей тела
+        shared:
+            title: Список частей тела
+    admin:
+        pages:
+            home:
+                title:
+                    Администрирование
+        healthcats:
+            index:
+                title:
+                    Справочник заболеваний
+            new:
+                title: Добавление раздела
+            edit:
+                title: Редактирование раздела
+        bodyparts:
+            index:
+                title: Список частей тела
     activerecord:
         attributes:
             user:
                 password: Пароль
+            healthcat:
+                name: Название раздела
+                description: Краткое описание
+                parent_healthcat_id: Родительский раздел
+                gender: Ограничение по полу

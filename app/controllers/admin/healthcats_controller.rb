@@ -1,8 +1,10 @@
 class Admin::HealthcatsController < ApplicationController
     load_and_authorize_resource
 
+    layout "dashboard"
+
     def index
-        @healthcats = Healthcat.may_be_a_parent
+        @healthcats = Healthcat.may_be_a_parent.page(params[:page]).per(50)
     end
 
     def new
@@ -12,7 +14,7 @@ class Admin::HealthcatsController < ApplicationController
     def create
         @healthcat = Healthcat.new(params[:healthcat])
         if params[:cancel_button] || @healthcat.save
-            redirect_to healthcats_path
+            redirect_to admin_healthcats_path
         else
             render :new
         end
@@ -25,7 +27,7 @@ class Admin::HealthcatsController < ApplicationController
     def update
         @healthcat = Healthcat.find(params[:id])
         if params[:cancel_button] || @healthcat.update_attributes(params[:healthcat])
-            redirect_to healthcats_path
+            redirect_to admin_healthcats_path
         else
             render :edit
         end
@@ -49,6 +51,6 @@ class Admin::HealthcatsController < ApplicationController
             end
         end
         @healthcat.destroy
-        redirect_to healthcats_path
+        redirect_to admin_healthcats_path
     end
 end
