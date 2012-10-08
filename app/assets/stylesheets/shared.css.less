@@ -5,12 +5,17 @@
         .header { border-bottom: 1px solid #EEE; }
         h3 { margin: 0; }
         td.right { text-align: right; }
-        td.child { padding-left:  @gridGutterWidth*2; }
+        td.child { padding-left: @gridGutterWidth*2; }
         tr.subcat > td { 
             padding: 0; 
             border-top: 0;
         }
         tr.subcat > td > div > table { margin: 0; }
+        .small { 
+            font-size: @baseFontSize*0.85; 
+            text-align: center;
+        }
+        .full_width { width: 98%; }
     }
 }
 

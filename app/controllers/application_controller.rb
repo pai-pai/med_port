@@ -25,4 +25,8 @@ class ApplicationController < ActionController::Base
         def after_sign_out_path_for(users)
             request.referer
         end
+
+        def check_authorized
+            redirect_to new_user_session_path unless can? :admin, :all
+        end
 end

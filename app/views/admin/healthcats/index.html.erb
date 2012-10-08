@@ -12,7 +12,8 @@
         </tr>
     </tbody>
 </table>
-<table width="100%" class="table table-hover">
+
+<table width="100%" class="table table-stripe">
     <tbody>
         <% if @healthcats.blank? %>
             <tr>
@@ -21,13 +22,13 @@
         <% else %>
             <tr>
                 <th><%= t('healthcats.shared.name') %></th>
-                <th width="20%"><%= t('shared.created_at') %></th>
-                <th width="5%"></th>
+                <th width="110px"><%= t('shared.created_at') %></th>
+                <th width="20px"></th>
             </tr>
             <% @healthcats.each do |cat| %>
                 <tr>
-                    <td><%= link_to cat.name, admin_healthcat_path(cat.id) %></td>
-                    <td><%= l cat.created_at.to_time, :format => :short_date %></td>
+                    <td><%= link_to cat.name, edit_admin_healthcat_path(cat.id) %></td>
+                    <td class="small"><%= l cat.created_at.to_time, :format => :short_date %></td>
                     <% if not cat.child_healthcats.blank? %>
                         <td class="display_subcats"><i class="icon-chevron-down pull-right"></i></td>
                     <% else %>
@@ -38,13 +39,13 @@
                     <tr class="subcat">
                         <td colspan="3">
                             <div class="slide_panel">
-                                <table width="100%" class="table table-hover">
+                                <table width="100%" class="table">
                                     <tbody>
                                         <% cat.child_healthcats.each do |child| %>
                                             <tr>
-                                                <td class="child">&mdash;&nbsp;&nbsp;<%= link_to child.name, admin_healthcat_path(child.id) %></td>
-                                                <td width="20%"><%= l child.created_at.to_time, :format => :short_date %></td>
-                                                <td width="5%"></td>
+                                                <td class="child">&mdash;&nbsp;&nbsp;<%= link_to child.name, edit_admin_healthcat_path(child.id) %></td>
+                                                <td width="110px" class="small"><%= l child.created_at.to_time, :format => :short_date %></td>
+                                                <td width="20px"></td>
                                             </tr>
                                         <% end %>
                                     </tbody>

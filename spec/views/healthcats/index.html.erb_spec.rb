@@ -9,7 +9,7 @@ describe "healthcats/index.html.erb" do
 
         it "should not contain add new healthcat link" do
             render
-            rendered.should_not have_link(t('shared.healthcat.add_new'))
+            rendered.should_not have_link(t('healthcats.shared.add_new'))
         end
     end
 
@@ -21,7 +21,7 @@ describe "healthcats/index.html.erb" do
 
         it "should contain link to administration's panel" do
             render
-            rendered.should have_link(t('shared.healthcat.add_new'))
+            rendered.should have_link(t('healthcats.shared.add_new'))
         end
     end
 end

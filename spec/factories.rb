@@ -21,5 +21,6 @@ FactoryGirl.define do
     factory :healthcat do
         sequence(:name) { |n| "Healthcat name #{n}" }
         description { "#{'Amor non est medicabilis herbis '*300}" }
+        gender { "male" }
     end
 end

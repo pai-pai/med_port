@@ -1,4 +1,6 @@
 class Admin::HealthcatsController < ApplicationController
+    before_filter :check_authorized
+
     load_and_authorize_resource
 
     layout "dashboard"
