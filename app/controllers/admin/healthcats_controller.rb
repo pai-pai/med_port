@@ -29,7 +29,7 @@ class Admin::HealthcatsController < ApplicationController
     def update
         @healthcat = Healthcat.find(params[:id])
         if params[:cancel_button] || @healthcat.update_attributes(params[:healthcat])
-            redirect_to admin_healthcats_path
+            redirect_to :controller => 'admin/healthcats', :action => 'index'
         else
             render :edit
         end

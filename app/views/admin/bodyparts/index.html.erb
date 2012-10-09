@@ -1,0 +1,33 @@
+<% content_for :title do %>
+    <%= t('.title') %>
+<% end %>
+
+<table width="100%" class="fixed">
+    <tbody>
+        <tr class="header">
+            <td><h3><%= t('bodyparts.index.title') %></h3></td>
+            <td class="right">
+                <%= link_to t('shared.actions.add.with_icon_html'), new_admin_bodypart_path, :class => "btn btn-primary" %>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<table width="100%" class="table">
+    <tbody>
+        <% if @bodyparts.blank? %>
+            <tr>
+                <td><%= t('shared.no_info') %></td>
+            </tr>
+        <% else %>
+            <tr>
+                <th><%= t('shared.name') %></th>
+            </tr>
+            <% @bodyparts.each do |part| %>
+                <tr>
+                    <td><%= link_to part.name, edit_admin_bodypart_path(part.id) %></td>
+                </tr>
+            <% end %>
+        <% end %>
+    </tbody>
+</table>

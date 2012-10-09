@@ -5,6 +5,9 @@ class Healthcat < ActiveRecord::Base
         [ [ I18n.t('shared.genders.male'), "male" ], [ I18n.t('shared.genders.female'), "female" ] ]
     end
 
+    has_many :placings, :dependent => :destroy
+    has_many :bodyparts, :through => :placings
+
     scope :may_be_a_parent, lambda { where('parent_healthcat_id IS ?', nil).order(:name) }
 
     validates_presence_of :name

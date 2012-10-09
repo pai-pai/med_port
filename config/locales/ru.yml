@@ -260,6 +260,7 @@ ru:
     shared:
         title: ! 'Медицинский портал Нижнего Новгорода'
         no_info: ! 'Нет данных для отображения.'
+        name: Название
         created_at: Дата создания
         actions:
             edit: Редактировать
@@ -345,6 +346,10 @@ ru:
         bodyparts:
             index:
                 title: Список частей тела
+            new:
+                title: Добавление части тела
+            edit:
+                title: Редактирование части тела
     activerecord:
         attributes:
             user:
@@ -354,3 +359,5 @@ ru:
                 description: Краткое описание
                 parent_healthcat_id: Родительский раздел
                 gender: Ограничение по полу
+            bodypart:
+                name: Часть тела

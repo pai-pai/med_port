@@ -13,7 +13,7 @@
     </tbody>
 </table>
 
-<table width="100%" class="table table-stripe">
+<table width="100%" class="table">
     <tbody>
         <% if @healthcats.blank? %>
             <tr>
@@ -21,7 +21,7 @@
             </tr>
         <% else %>
             <tr>
-                <th><%= t('healthcats.shared.name') %></th>
+                <th><%= t('shared.name') %></th>
                 <th width="110px"><%= t('shared.created_at') %></th>
                 <th width="20px"></th>
             </tr>

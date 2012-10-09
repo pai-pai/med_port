@@ -3,5 +3,7 @@
     <%= content_tag :li, :class => ('active' if params[:controller] == "admin/healthcats") do %>
         <%= link_to t('healthcats.shared.categories'), admin_healthcats_path %>
     <% end %>
-    <li><%= link_to t('bodyparts.shared.title') %></li>
+    <%= content_tag :li, :class => ('active' if params[:controller] == "admin/bodyparts") do %>
+        <%= link_to t('bodyparts.shared.title'), admin_bodyparts_path %>
+    <% end %>
 </ul>

@@ -23,4 +23,8 @@ FactoryGirl.define do
         description { "#{'Amor non est medicabilis herbis '*300}" }
         gender { "male" }
     end
+
+    factory :bodypart do
+        sequence(:name) { |n| "Bodypart name #{n}" }
+    end
 end
