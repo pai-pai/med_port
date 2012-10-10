@@ -19,6 +19,18 @@
     }
 }
 
+.add_by_click, .parts { display: inline; }
+.part_element { margin-right: @gridGutterWidth/4; }
+.dropdown-menu { 
+    padding: @baseFontSize/2 0; 
+    li { padding: 0 @baseFontSize; }
+    li:hover { 
+        background-color: @linkColor; 
+        color: white;
+        cursor: pointer;
+    }
+}
+
 .add-margin-bottom (@height: @baseFontSize) { margin-bottom: @height; }
 
 .well { padding: 8px 0; }

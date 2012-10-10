@@ -1,5 +1,5 @@
 class Healthcat < ActiveRecord::Base
-    attr_accessible :name, :translated_name, :description, :parent_healthcat_id, :gender
+    attr_accessible :name, :translated_name, :description, :parent_healthcat_id, :gender, :bodypart_names
 
     cattr_accessor :genders do
         [ [ I18n.t('shared.genders.male'), "male" ], [ I18n.t('shared.genders.female'), "female" ] ]
@@ -22,6 +22,15 @@ class Healthcat < ActiveRecord::Base
 
     def to_param
         "#{id}-#{translated_name}"
+    end
+
+    def bodypart_names=(names)
+        names_line = "".encode("cp1251") + names
+        self.bodyparts = Bodypart.with_names(names_line.split(%r{, +}))
+    end
+
+    def bodypart_names
+        bodyparts.map(&:name).join(', ')
     end
 
     before_save :set_childs_gender, :set_translate_name

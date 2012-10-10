@@ -6,4 +6,10 @@ class Bodypart < ActiveRecord::Base
 
     validates_presence_of :name
     validates_uniqueness_of :name
+
+    def self.with_names(names)
+        names.map do |name|
+            Bodypart.find_by_name(name)
+        end
+    end
 end

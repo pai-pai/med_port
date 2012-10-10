@@ -28,9 +28,19 @@
         </div>
     </div>
     <div class="control-group">
-        <%= f.label :description, :class => "control-label" %>
+        <%= f.label :bodyparts, :class => "control-label" %>
         <div class="controls">
-            <%#= f.text_field : %>
+            <%= f.text_field :bodypart_names %>
+            <div class="parts"></div>
+            <div class="dropdown add_by_click">
+                <a class="dropdown-toggle" data-toggle="dropdown" id="add_parts" href="#"><%= t('shared.actions.add.simple') %></a>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="add_parts">
+                    <% Bodypart.all.each do |part| %>
+                        <li class="enable"><%= part.name %></li>
+                    <% end %>
+                    <li class="nothing_to_add"><%= t('shared.messages.nothing_to_add') %></li>
+                </ul>
+            </div>
         </div>
     </div>
     <div class="control-group">

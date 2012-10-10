@@ -273,6 +273,8 @@ ru:
         genders:
             male: мужской
             female: женский
+        messages:
+            nothing_to_add: ! 'добавлять нечего :)'
     devise:
         sessions:
             new:
@@ -324,7 +326,7 @@ ru:
             gender: Ограничение по полу
             parent_healthcat_id: Родительский раздел
             childrens_list: Подразделы
-            bodyparts: Охватываемые части тела
+            bodyparts: Части тела
     bodyparts:
         index:
             title: Список частей тела
@@ -359,5 +361,6 @@ ru:
                 description: Краткое описание
                 parent_healthcat_id: Родительский раздел
                 gender: Ограничение по полу
+                bodyparts: Части тела
             bodypart:
                 name: Часть тела
