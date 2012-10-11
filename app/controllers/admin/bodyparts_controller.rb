@@ -6,7 +6,7 @@ class Admin::BodypartsController < ApplicationController
     layout "dashboard"
     
     def index
-        @bodyparts = Bodypart.all
+        @bodyparts = Bodypart.order(:name).all
     end
 
     def new
@@ -40,8 +40,7 @@ class Admin::BodypartsController < ApplicationController
     end
 
     def destroy
-        @bodypart = Bodypart.find(params[:id])
-        @bodypart.destroy
+        Bodypart.find(params[:parts]).each { |bodypart| bodypart.destroy}
         redirect_to admin_bodyparts_path
     end
 end

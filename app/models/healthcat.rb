@@ -26,6 +26,7 @@ class Healthcat < ActiveRecord::Base
 
     def bodypart_names=(names)
         names_line = "".encode("cp1251") + names
+        names_line = names_line.gsub(/^(, *)+/, "")
         self.bodyparts = Bodypart.with_names(names_line.split(%r{, +}))
     end
 

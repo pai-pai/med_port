@@ -264,7 +264,9 @@ ru:
         created_at: Дата создания
         actions:
             edit: Редактировать
-            delete: Удалить
+            delete: 
+                simple: Удалить
+                with_icon_html: <i class="icon-trash"></i><span></span>
             save: Сохранить
             cancel: Отменить
             add:

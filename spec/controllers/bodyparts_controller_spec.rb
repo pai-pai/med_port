@@ -93,9 +93,8 @@ describe Admin::BodypartsController do
         end
 
         it "should destroy bodypart" do
-            expect {
-				delete :destroy, {:id => @bodypart.id}
-            }.to change(Bodypart, :count).by(-1)
+            delete :destroy, :parts => [@bodypart.id]
+            Bodypart.all.count.should == 0
         end
 
         it "should get edit" do
@@ -104,7 +103,7 @@ describe Admin::BodypartsController do
         end
 
         it "should update bodypart" do
-            get :update, :id => @bodypart
+            put :update, :id => @bodypart
             @bodypart.update_attributes(:name => "New name")
             Bodypart.last.name.should eq("New name")
         end

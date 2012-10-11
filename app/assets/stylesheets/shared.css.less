@@ -6,6 +6,7 @@
         h3 { margin: 0; }
         td.right { text-align: right; }
         td.child { padding-left: @gridGutterWidth*2; }
+        td.display_subcats { cursor: pointer; }
         tr.subcat > td { 
             padding: 0; 
             border-top: 0;
@@ -20,7 +21,10 @@
 }
 
 .add_by_click, .parts { display: inline; }
-.part_element { margin-right: @gridGutterWidth/4; }
+.part_element { 
+    margin-right: @gridGutterWidth/4; 
+    cursor: pointer;
+}
 .dropdown-menu { 
     padding: @baseFontSize/2 0; 
     li { padding: 0 @baseFontSize; }

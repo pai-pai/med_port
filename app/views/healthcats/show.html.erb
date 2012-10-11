@@ -13,7 +13,7 @@
                     <td class="modify">
                         <div class="control_panel">
                             <%= link_to t('shared.actions.edit'), edit_healthcat_path %>
-                            <%= link_to t('shared.actions.delete'), @healthcat, :method => :delete if can? :destroy, :healthcat %>
+                            <%= link_to t('shared.actions.delete.simple'), @healthcat, :method => :delete if can? :destroy, :healthcat %>
                         </div>
                     </td>
                 <% end %>

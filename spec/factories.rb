@@ -13,6 +13,10 @@ FactoryGirl.define do
         admin true
     end
 
+    factory :bodypart do
+        sequence(:name) { |n| "Bodypart name #{n}" }
+    end
+
     factory :category do
         sequence(:name) { |n| "Category name #{n}" }
         description { "#{'Ave, Caesar! Morituri te salutant! '*300}" }
@@ -22,9 +26,5 @@ FactoryGirl.define do
         sequence(:name) { |n| "Healthcat name #{n}" }
         description { "#{'Amor non est medicabilis herbis '*300}" }
         gender { "male" }
-    end
-
-    factory :bodypart do
-        sequence(:name) { |n| "Bodypart name #{n}" }
     end
 end

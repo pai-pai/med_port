@@ -35,8 +35,8 @@
             <div class="dropdown add_by_click">
                 <a class="dropdown-toggle" data-toggle="dropdown" id="add_parts" href="#"><%= t('shared.actions.add.simple') %></a>
                 <ul class="dropdown-menu" role="menu" aria-labelledby="add_parts">
-                    <% Bodypart.all.each do |part| %>
-                        <li class="enable"><%= part.name %></li>
+                    <% Bodypart.order(:name).all.each do |part| %>
+                        <li class="enable visible"><%= part.name %></li>
                     <% end %>
                     <li class="nothing_to_add"><%= t('shared.messages.nothing_to_add') %></li>
                 </ul>
@@ -45,8 +45,8 @@
     </div>
     <div class="control-group">
         <div class="controls">
-            <%= f.submit t('shared.actions.save'), {:class => "submit_button btn"} %>
-            <%= submit_tag t('shared.actions.cancel'), {:name => 'cancel_button', :class => "submit_button btn"} %>
+            <%= f.submit t('shared.actions.save'), {:class => "btn-primary btn"} %>
+            <%= submit_tag t('shared.actions.cancel'), {:name => 'cancel_button', :class => "btn"} %>
         </div>
     </div>
 <% end %>

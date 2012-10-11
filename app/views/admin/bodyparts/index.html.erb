@@ -2,12 +2,14 @@
     <%= t('.title') %>
 <% end %>
 
+<%= form_tag('bodyparts', :method => :delete) do %>
 <table width="100%" class="fixed">
     <tbody>
         <tr class="header">
             <td><h3><%= t('bodyparts.index.title') %></h3></td>
             <td class="right">
                 <%= link_to t('shared.actions.add.with_icon_html'), new_admin_bodypart_path, :class => "btn btn-primary" %>
+                <%= submit_tag t('shared.actions.delete.simple'), {:class => "btn"} %>
             </td>
         </tr>
     </tbody>
@@ -21,13 +23,16 @@
             </tr>
         <% else %>
             <tr>
+                <th width="20px"><%= check_box_tag 'check_all' %></th>
                 <th><%= t('shared.name') %></th>
             </tr>
             <% @bodyparts.each do |part| %>
                 <tr>
+                    <td><%= check_box_tag "parts[]", part.id  %></td>
                     <td><%= link_to part.name, edit_admin_bodypart_path(part.id) %></td>
                 </tr>
             <% end %>
         <% end %>
     </tbody>
 </table>
+<% end %>
