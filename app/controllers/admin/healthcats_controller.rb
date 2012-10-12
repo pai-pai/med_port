@@ -45,14 +45,40 @@ class Admin::HealthcatsController < ApplicationController
     end
 
     def destroy
-        @healthcat = Healthcat.find(params[:id])
-        @child_healthcats = @healthcat.child_healthcats
-        if not @child_healthcats.blank?
-            @child_healthcats.each do |child|
-                Healthcat.find(child.id).destroy
+        Healthcat.find(params[:cats]).each do |cat|
+            if not cat.child_healthcats.blank?
+                cat.child_healthcats.each do |child|
+                    Healthcat.find(child.id).destroy
+                end
             end
+            cat.destroy
         end
-        @healthcat.destroy
         redirect_to admin_healthcats_path
+    end
+
+    def move
+        if params[:delete_button]
+            Healthcat.find(params[:cats]).each do |cat|
+                if not cat.child_healthcats.blank?
+                    cat.child_healthcats.each do |child|
+                        Healthcat.find(child.id).destroy
+                    end
+                end
+                cat.destroy
+            end
+            redirect_to admin_healthcats_path
+        elsif params[:move_button]
+            Healthcat.find(params[:cats]).each do |cat|
+                if not cat.child_healthcats.blank?
+                    cat.child_healthcats.each do |child|
+                        child.update_column(:parent_healthcat_id, params[:parent_cat])
+                        child.save
+                    end
+                end
+                cat.update_column(:parent_healthcat_id, params[:parent_cat])
+                cat.save
+            end
+            redirect_to admin_healthcats_path
+        end        
     end
 end
