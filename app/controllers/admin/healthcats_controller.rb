@@ -71,12 +71,10 @@ class Admin::HealthcatsController < ApplicationController
             Healthcat.find(params[:cats]).each do |cat|
                 if not cat.child_healthcats.blank?
                     cat.child_healthcats.each do |child|
-                        child.update_column(:parent_healthcat_id, params[:parent_cat])
-                        child.save
+                        child.update_attributes(:parent_healthcat_id => params[:parent_cat])
                     end
                 end
-                cat.update_column(:parent_healthcat_id, params[:parent_cat])
-                cat.save
+                cat.update_attributes(:parent_healthcat_id => params[:parent_cat])
             end
             redirect_to admin_healthcats_path
         end        

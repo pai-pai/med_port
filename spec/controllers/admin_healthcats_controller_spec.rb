@@ -148,5 +148,18 @@ describe Admin::HealthcatsController do
             post :move, :move_button => true, :cats => [@healthcat.id], :parent_cat => @new_parent.id
             @healthcat.child_healthcats.count.should == 0
         end
+
+        it "should be new parent id in child's parent_healthcat_id" do
+            @child = Healthcat.create!(FactoryGirl.attributes_for(:healthcat).merge(:gender => "", :parent_healthcat_id => @healthcat.id))
+            @new_parent = FactoryGirl.create(:healthcat)
+            post :move, :move_button => true, :cats => [@healthcat.id], :parent_cat => @new_parent.id
+            @new_parent.child_healthcats.first.parent_healthcat_id.should eq(@new_parent.id)
+        end
+
+        it "should move category to root level" do
+            @child = Healthcat.create!(FactoryGirl.attributes_for(:healthcat).merge(:gender => "", :parent_healthcat_id => @healthcat.id))
+            post :move, :move_button => true, :cats => [@child.id], :parent_cat => ""
+            Healthcat.may_be_a_parent.count.should == 2
+        end
     end
 end

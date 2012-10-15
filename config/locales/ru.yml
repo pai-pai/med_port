@@ -262,6 +262,7 @@ ru:
         no_info: ! 'Нет данных для отображения.'
         name: Название
         created_at: Дата создания
+        move_to_root: В корень справочника
         actions:
             edit: Редактировать
             delete: 
@@ -272,6 +273,7 @@ ru:
             add:
                 simple: Добавить
                 with_icon_html: <i class="icon-plus icon-white"></i> <span>Добавить</span>
+            move: Переместить
         genders:
             male: мужской
             female: женский

@@ -2,14 +2,16 @@
     <%= t('.title') %>
 <% end %>
 
-<%= form_tag('categories', :method => :delete) do %>
+<%= form_tag('categories/move', :method => :post) do %>
     <table width="100%" class="fixed">
         <tbody>
             <tr class="header">
                 <td><h3><%= t('healthcats.shared.categories') %></h3></td>
                 <td class="right">
                     <%= link_to t('shared.actions.add.with_icon_html'), new_admin_healthcat_path, :class => "btn btn-primary" %>
-                    <%= submit_tag t('shared.actions.delete.simple'), :class => "btn" %>
+                    <%= submit_tag t('shared.actions.delete.simple'), :name => 'delete_button', :class => "btn" %>
+                    <%= submit_tag t('shared.actions.move'), :name => 'move_button', :class => "btn" %>
+                    <%= select_tag :parent_cat, options_from_collection_for_select(Healthcat.may_be_a_parent, :id, :name) + "<option value=''>#{t('shared.move_to_root')}</option>".html_safe, :include_blank => true %>
                 </td>
             </tr>
         </tbody>
