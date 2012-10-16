@@ -16,6 +16,7 @@ MedPort::Application.routes.draw do
 
     namespace :admin do
         match "home" => "pages#home", :as => "home"
+        match "canvas" => "pages#canvas", :as => "canvas"
         resources :healthcats, :path => "zabolevaniya/categories" do
             collection do
                 delete 'destroy'
