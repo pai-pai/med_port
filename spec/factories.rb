@@ -27,4 +27,10 @@ FactoryGirl.define do
         description { "#{'Amor non est medicabilis herbis '*300}" }
         gender { "male" }
     end
+
+    factory :article do
+        sequence(:name) { |n| "What 's done is done #{n}" }
+        introduction { "#{'For Brutus is an honourable man; So are they all, all honourable men '*100}" }
+        body { "#{'Have more than thou showest, speak less than thou knowest, lend less than thou owest '*300}" }
+    end
 end

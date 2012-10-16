@@ -28,5 +28,10 @@ MedPort::Application.routes.draw do
                 delete 'destroy'
             end
         end
+        resources :articles do
+            collection do
+                delete 'destroy'
+            end
+        end
     end
 end
