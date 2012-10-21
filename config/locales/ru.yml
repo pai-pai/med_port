@@ -261,10 +261,12 @@ ru:
         title: ! 'Медицинский портал Нижнего Новгорода'
         no_info: ! 'Нет данных для отображения.'
         name: Название
+        articles_count: Количество статей
         created_at: Дата создания
         move_to_root: В корень справочника
         actions:
             edit: Редактировать
+            show: Просмотр
             delete: 
                 simple: Удалить
                 with_icon_html: <i class="icon-trash"></i><span></span>
@@ -338,6 +340,18 @@ ru:
             title: Список частей тела
         shared:
             title: Список частей тела
+    articles:
+        index:
+            title: Статьи
+        shared:
+            title: Статьи
+            prompt_for_healthcat: Выберите категорию
+    tags:
+        shared:
+            title: Тэги
+    organizations:
+        shared:
+            title: Организации
     admin:
         pages:
             home:
@@ -358,6 +372,13 @@ ru:
                 title: Добавление части тела
             edit:
                 title: Редактирование части тела
+        articles:
+            index:
+                title: Статьи
+            new:
+                title: Добавление статьи
+            edit:
+                title: Редактирование статьи
     activerecord:
         attributes:
             user:
@@ -370,3 +391,8 @@ ru:
                 bodyparts: Части тела
             bodypart:
                 name: Часть тела
+            article:
+                name: Название статьи
+                introduction: Вступительный текст
+                body: Основной текст
+                healthcat_id: Родительская категория

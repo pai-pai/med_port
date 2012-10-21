@@ -1,0 +1,48 @@
+<%= form_for([:admin, @article], :html => {:class => "form-horizontal"}) do |f| %>
+    <div class="control-group">
+        <%= f.label :name, :class => "control-label" %>
+        <div class="controls">
+            <%= f.text_field :name, :autofocus => true, :class => "full_width" %>
+        </div>
+    </div>
+    <div class="control-group">
+        <%= f.label :healthcat_id, :class => "control-label" %>
+        <div class="controls">
+            <%= grouped_collection_select(:article, :healthcat_id, Healthcat.may_be_a_parent, :child_healthcats, :name, :id, :name, :prompt => t('articles.shared.prompt_for_healthcat')) %>
+        </div>
+    </div>
+    <ul class="nav nav-tabs" id="article_healthcats_tabs">
+        <li><a href="#show"><%= t('shared.actions.show') %></a></li>
+        <li><a href="#edit"><%= t('shared.actions.edit') %></a></li>
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane" id="show">
+            <div class="full_width" id="show_article_intro">
+                    <%= @article.introduction.html_safe if not @article.introduction.blank? %>
+            </div>
+            <div class="full_width" id="show_article_body">
+                <%= @article.body.html_safe if not @article.body.blank? %>
+            </div>
+        </div>
+        <div class="tab-pane" id="edit">
+            <div class="control-group">
+                <%= f.label :introduction, :class => "control-label" %>
+                <div class="controls">
+                    <%= f.text_area :introduction, :rows => 4, :class => "full_width" %>
+                </div>
+            </div>
+            <div class="control-group">
+                <%= f.label :body, :class => "control-label" %>
+                <div class="controls">
+                    <%= f.text_area :body, :rows => 14, :class => "full_width" %>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="control-group">
+        <div class="controls">
+            <%= f.submit t('shared.actions.save'), {:class => "btn-primary btn"} %>
+            <%= submit_tag t('shared.actions.cancel'), {:name => 'cancel_button', :class => "btn"} %>
+        </div>
+    </div>
+<% end %>

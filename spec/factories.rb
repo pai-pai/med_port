@@ -35,6 +35,12 @@ FactoryGirl.define do
         body { "#{'Have more than thou showest, speak less than thou knowest, lend less than thou owest '*300}" }
     end
 
+    factory :organization do
+        sequence(:name) { |n| "Hospital number #{n}" }
+        address { "NN, somewhere" }
+        description { "#{'Git is a crucial part of many web design & development workflows, but there are still far too many people intimidated by it. '*300}" }
+    end
+
     factory :tag do
         sequence(:name) { |n| "Tag#{n}" }
     end

@@ -6,7 +6,9 @@ class Admin::ArticlesController < ApplicationController
     layout "dashboard"
 
     def index
-        @articles = Article.order(:name).all
+        if params[:cats].eql?("healthcats")
+            @articles = Article.healthcats.order(:name)
+        end
     end
 
     def new

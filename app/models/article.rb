@@ -1,11 +1,11 @@
 class Article < ActiveRecord::Base
-    attr_accessible :body, :introduction, :name, :translated_name
+    attr_accessible :body, :introduction, :name, :translated_name, :healthcat_id
 
     belongs_to :healthcat
     has_many :taggings, :dependent => :destroy
     has_many :tags, :through => :taggings
 
-    validates_presence_of :name
+    validates_presence_of :name, :body
     validates_uniqueness_of :name
 
     def to_param

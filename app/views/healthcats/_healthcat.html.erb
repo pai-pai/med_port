@@ -3,6 +3,13 @@
         <div><%= @healthcat.description %></div>
     </div>
 <% end %>
+<% if not @healthcat.articles.blank? %>
+    <ul class="unstyled">
+        <% @healthcat.articles.each do |article| %>
+            <li><%= link_to article.name, article_path(article.id) %></li>
+        <% end %>
+    </ul>
+<% end %>
 <% if not @child_healthcats.blank? %>
     <div class="show_group">
         <h5><%= t('healthcats.shared.childrens_list') %></h5>

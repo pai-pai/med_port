@@ -1,4 +1,6 @@
 MedPort::Application.routes.draw do
+  get "organizations/show"
+
     root :to => "pages#home"
 
     devise_for :users
@@ -9,6 +11,7 @@ MedPort::Application.routes.draw do
     resources :bodyparts
     resources :articles
     resources :tags
+    resources :organizations
 
     match "home" => "pages#home", :as => "home"
     match '/zabolevaniya/categories(/:parent_healthcat_id-:parent_translated_name)/:id-:translated_name' => 'healthcats#show', :as => :show
@@ -34,6 +37,11 @@ MedPort::Application.routes.draw do
             end
         end
         resources :tags do
+            collection do
+                delete 'destroy'
+            end
+        end
+        resources :organizations do
             collection do
                 delete 'destroy'
             end

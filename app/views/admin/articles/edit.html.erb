@@ -1,2 +1,9 @@
-<h1>Articles#edit</h1>
-<p>Find me in app/views/articles/edit.html.erb</p>
+<% content_for :title do %>
+    <%= t('.title') %>
+<% end %>
+
+<div class="span12">
+    <h2 class="form_title"><%= t('.title') %></h2>
+
+    <%= render 'form' %>
+</div>

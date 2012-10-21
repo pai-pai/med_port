@@ -1,9 +1,17 @@
 <ul class="nav nav-list">
-    <li class="nav-header"><%= t('healthcats.shared.title') %></li>
     <%= content_tag :li, :class => ('active' if params[:controller] == "admin/healthcats") do %>
         <%= link_to t('healthcats.shared.categories'), admin_healthcats_path %>
     <% end %>
     <%= content_tag :li, :class => ('active' if params[:controller] == "admin/bodyparts") do %>
         <%= link_to t('bodyparts.shared.title'), admin_bodyparts_path %>
+    <% end %>
+    <%= content_tag :li, :class => ('active' if params[:controller] == "admin/articles") do %>
+        <%= link_to t('articles.shared.title'), admin_articles_path, :cats => "healthcats" %>
+    <% end %>
+    <%= content_tag :li, :class => ('active' if params[:controller] == "admin/tags") do %>
+        <%= link_to t('tags.shared.title'), admin_tags_path %>
+    <% end %>
+    <%= content_tag :li, :class => ('active' if params[:controller] == "admin/organizations") do %>
+        <%= link_to t('organizations.shared.title'), admin_organizations_path %>
     <% end %>
 </ul>

@@ -1,2 +1,38 @@
-<h1>Articles#index</h1>
-<p>Find me in app/views/articles/index.html.erb</p>
+<% content_for :title do %>
+    <%= t('.title') %>
+<% end %>
+
+<%= form_tag('articles', :method => :delete) do %>
+    <table width="100%" class="fixed">
+        <tbody>
+            <tr class="header">
+                <td><h3><%= t('articles.index.title') %></h3></td>
+                <td class="right">
+                    <%= link_to t('shared.actions.add.with_icon_html'), new_admin_article_path, :class => "btn btn-primary" %>
+                    <%= submit_tag t('shared.actions.delete.simple'), {:class => "btn"} %>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table width="100%" class="table">
+        <tbody>
+            <% if @articles.blank? %>
+                <tr>
+                    <td><%= t('shared.no_info') %></td>
+                </tr>
+            <% else %>
+                <tr>
+                    <th width="20px"><%= check_box_tag 'check_all' %></th>
+                    <th><%= t('shared.name') %></th>
+                </tr>
+                <% @articles.each do |article| %>
+                    <tr>
+                        <td><%= check_box_tag "articles[]", article.id  %></td>
+                        <td><%= link_to article.name, edit_admin_article_path(article.id) %></td>
+                    </tr>
+                <% end %>
+            <% end %>
+        </tbody>
+    </table>
+<% end %>
