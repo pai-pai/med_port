@@ -17,6 +17,9 @@ end
 
 module MedPort
   class Application < Rails::Application
+
+    ADMIN_EMAIL = "paimai.dororo@gmail.com"
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
@@ -66,5 +69,7 @@ module MedPort
     config.assets.version = '1.0'
 
     config.assets.initialize_on_precompile = false
+
+    config.action_mailer.default_url_options = { :host => 'localhost:3000' } 
   end
 end
