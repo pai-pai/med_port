@@ -15,6 +15,7 @@ MedPort::Application.routes.draw do
 
     match "home" => "pages#home", :as => "home"
     match '/zabolevaniya/categories(/:parent_healthcat_id-:parent_translated_name)/:id-:translated_name' => 'healthcats#show', :as => :show
+    match '/zabolevaniya/categories(/:parent_healthcat_id-:parent_translated_name)/:healthcat_id-:healthcat_translated_name/:id-:translated_name' => 'articles#show', :as => :article_show
 
     namespace :admin do
         match "home" => "pages#home", :as => "home"

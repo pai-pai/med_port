@@ -13,17 +13,13 @@ class ApplicationController < ActionController::Base
 
     private
         def set_session
-            if devise_controller? && resource_name == :user && action_name == 'new'
+            if devise_controller? && resource_name == :user && controller_name != 'registrations' && action_name == 'new'
                 session["user_return_to"] = request.referer 
             end
         end
 
         def after_sign_in_path_for(users)
-            if not session["user_return_to"] = new_user_registration_path
-                session["user_return_to"] || root_path
-            else
-                root_path
-            end
+            session["user_return_to"] || root_path
         end
 
         def after_sign_out_path_for(users)

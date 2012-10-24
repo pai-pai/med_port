@@ -6,7 +6,12 @@
 <% if not @healthcat.articles.blank? %>
     <ul class="unstyled">
         <% @healthcat.articles.each do |article| %>
-            <li><%= link_to article.name, article_path(article.id) %></li>
+            <li><%= link_to article.name, article_show_path(@healthcat.parent_healthcat.id, 
+                                                            @healthcat.parent_healthcat.translated_name, 
+                                                            @healthcat.id, 
+                                                            @healthcat.translated_name,
+                                                            article.id, 
+                                                            article.translated_name) %></li>
         <% end %>
     </ul>
 <% end %>
@@ -15,7 +20,10 @@
         <h5><%= t('healthcats.shared.childrens_list') %></h5>
         <ul class="subcats">
             <% @child_healthcats.each do |child| %>
-                <li><%= link_to child.name, show_path( @healthcat.id, @healthcat.translated_name, child.id, child.translated_name) %></li>
+                <li><%= link_to child.name, show_path( @healthcat.id, 
+                                                       @healthcat.translated_name, 
+                                                       child.id, 
+                                                       child.translated_name) %></li>
             <% end %>
             <% if can? :create, :healthcat %>
                 <li><%= link_to t('healthcats.shared.add_new'), { :controller => "healthcats", :action => "new", :parent => @healthcat.id } %></li>

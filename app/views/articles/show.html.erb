@@ -1,2 +1,10 @@
-<h1>Articles#show</h1>
-<p>Find me in app/views/articles/show.html.erb</p>
+<% content_for :title do %>
+    <%= @article.name %>
+<% end %>
+
+<%= render "shared/breadcrumbs/breadcrumbs_article" %>
+
+
+<h1><%= @article.name %></h1>
+<div><%= raw @article.introduction if not @article.introduction.blank? %></div>
+<div><%= raw @article.body if not @article.body.blank? %></div>

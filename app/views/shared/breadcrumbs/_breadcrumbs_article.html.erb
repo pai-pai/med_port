@@ -1,0 +1,10 @@
+<div>
+    <ul class="breadcrumb">
+        <li><%= link_to t('healthcats.shared.title'), healthcats_path %> <span class="divider">/</span></li>
+        <% if not @article.healthcat.parent_healthcat.blank? %>
+            <li><%= link_to @article.healthcat.parent_healthcat.name, @article.healthcat.parent_healthcat %> <span class="divider">/</span></li>
+        <% end %>
+        <li><%= link_to @article.healthcat.name, @article.healthcat %> <span class="divider">/</span></li>
+        <li class="active"><%= @article.name %></li>
+    </ul>
+</div>
