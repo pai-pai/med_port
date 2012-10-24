@@ -332,7 +332,7 @@ ru:
             name: Название раздела
             description: Краткое описание
             gender: Ограничение по полу
-            parent_healthcat_id: Родительский раздел
+            parent_id: Родительский раздел
             childrens_list: Подразделы
             bodyparts: Части тела
     bodyparts:
@@ -386,7 +386,7 @@ ru:
             healthcat:
                 name: Название раздела
                 description: Краткое описание
-                parent_healthcat_id: Родительский раздел
+                parent_id: Родительский раздел
                 gender: Ограничение по полу
                 bodyparts: Части тела
             bodypart:

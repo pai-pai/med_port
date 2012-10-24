@@ -2,7 +2,7 @@ class HealthcatsController < ApplicationController
     load_and_authorize_resource
 
     def index
-        @healthcats = Healthcat.may_be_a_parent
+        @healthcats = Healthcat.all_parents
     end
 
     def new
@@ -33,7 +33,7 @@ class HealthcatsController < ApplicationController
 
     def show
         @healthcat = Healthcat.find(params[:id])
-        @child_healthcats = @healthcat.child_healthcats
+        @children = @healthcat.subcats
     end
 
     def show_child
@@ -42,9 +42,9 @@ class HealthcatsController < ApplicationController
 
     def destroy
         @healthcat = Healthcat.find(params[:id])
-        @child_healthcats = @healthcat.child_healthcats
-        if not @child_healthcats.blank?
-            @child_healthcats.each do |child|
+        @children = @healthcat.subcats
+        if not @children.blank?
+            @children.each do |child|
                 Healthcat.find(child.id).destroy
             end
         end

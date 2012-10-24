@@ -7,15 +7,17 @@ MedPort::Application.routes.draw do
 
     resources :users, :only => [:show, :index]
     resources :categories
-    resources :healthcats, :path => "/zabolevaniya/categories"
+    resources :healthcats, :path => "/zabolevaniya/categories" do
+        resources :subcats
+    end
     resources :bodyparts
     resources :articles
     resources :tags
     resources :organizations
 
     match "home" => "pages#home", :as => "home"
-    match '/zabolevaniya/categories(/:parent_healthcat_id-:parent_translated_name)/:id-:translated_name' => 'healthcats#show', :as => :show
-    match '/zabolevaniya/categories(/:parent_healthcat_id-:parent_translated_name)/:healthcat_id-:healthcat_translated_name/:id-:translated_name' => 'articles#show', :as => :article_show
+    #match '/zabolevaniya/categories(/:parent_healthcat_id-:parent_translated_name)/:id-:translated_name' => 'healthcats#show', :as => :show
+    #match '/zabolevaniya/categories(/:parent_healthcat_id-:parent_translated_name)/:healthcat_id-:healthcat_translated_name/:id-:translated_name' => 'articles#show', :as => :article_show
 
     namespace :admin do
         match "home" => "pages#home", :as => "home"

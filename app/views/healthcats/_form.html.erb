@@ -12,12 +12,12 @@
         </div>
     </div>
     <div class="control-group">
-        <%= f.label :parent_healthcat_id, :class => "control-label" %>
+        <%= f.label :parent_id, :class => "control-label" %>
         <div class="controls">
             <% if params[:parent] %>
-                <%= f.collection_select :parent_healthcat_id, Healthcat.may_be_a_parent, :id, :name, :include_blank => true, :selected => params[:parent] %>
+                <%= f.collection_select :parent_id, Healthcat.all_parents, :id, :name, :include_blank => true, :selected => params[:parent] %>
             <% else %>
-                <%= f.collection_select :parent_healthcat_id, Healthcat.may_be_a_parent, :id, :name, :include_blank => true %>
+                <%= f.collection_select :parent_id, Healthcat.all_parents, :id, :name, :include_blank => true %>
             <% end %>
         </div>
     </div>
