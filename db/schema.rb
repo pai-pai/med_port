@@ -11,17 +11,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121024172352) do
+ActiveRecord::Schema.define(:version => 20121025130551) do
 
   create_table "articles", :force => true do |t|
     t.string   "name"
     t.string   "translated_name"
     t.text     "introduction"
     t.text     "body"
-    t.integer  "healthcat_id"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+    t.integer  "categorizable_id"
+    t.string   "categorizable_type"
   end
+
+  add_index "articles", ["categorizable_id", "categorizable_type"], :name => "index_articles_on_categorizable_id_and_categorizable_type"
 
   create_table "bodyparts", :force => true do |t|
     t.string   "name"

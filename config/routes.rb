@@ -5,19 +5,18 @@ MedPort::Application.routes.draw do
 
     devise_for :users
 
-    resources :users, :only => [:show, :index]
+    resources :users, :only => [ :show, :index ]
     resources :categories
-    resources :healthcats, :path => "/zabolevaniya/categories" do
-        resources :subcats
+    resources :healthcats, :path => "zabolevaniya/categories" do
+        resources :healthcats, :path => "/subcats" do
+            resources :articles
+        end
     end
     resources :bodyparts
-    resources :articles
     resources :tags
     resources :organizations
 
     match "home" => "pages#home", :as => "home"
-    #match '/zabolevaniya/categories(/:parent_healthcat_id-:parent_translated_name)/:id-:translated_name' => 'healthcats#show', :as => :show
-    #match '/zabolevaniya/categories(/:parent_healthcat_id-:parent_translated_name)/:healthcat_id-:healthcat_translated_name/:id-:translated_name' => 'articles#show', :as => :article_show
 
     namespace :admin do
         match "home" => "pages#home", :as => "home"

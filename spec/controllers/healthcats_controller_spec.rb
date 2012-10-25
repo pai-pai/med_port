@@ -5,6 +5,7 @@ describe HealthcatsController do
 
     before(:each) do
         @user = FactoryGirl.create(:user)
+        @user.confirm!
         @healthcat = FactoryGirl.build(:healthcat)
     end
 
@@ -70,6 +71,7 @@ describe HealthcatsController do
     describe "if user is admin" do
         before(:each) do
             @admin = FactoryGirl.create(:admin)
+            @admin.confirm!
             sign_in @admin
         end
 
@@ -100,7 +102,7 @@ describe HealthcatsController do
             @healthcat.save
             @healthcat = Healthcat.last
             Healthcat.create!(FactoryGirl.attributes_for(:healthcat).merge(:gender => "", :parent_id => @healthcat.id))
-            Healthcat.last.parent_healthcat_id.should eq(@healthcat.id)
+            Healthcat.last.parent_id.should eq(@healthcat.id)
             Healthcat.last.gender.should eq(@healthcat.gender)
         end
 

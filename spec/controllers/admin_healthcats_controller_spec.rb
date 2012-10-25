@@ -37,6 +37,7 @@ describe Admin::HealthcatsController do
     describe "if user is authenticated" do
         before(:each) do
             @user = FactoryGirl.create(:user)
+            @user.confirm!
             sign_in @user
         end
 
@@ -69,6 +70,7 @@ describe Admin::HealthcatsController do
     describe "if user is admin" do
         before(:each) do
             @admin = FactoryGirl.create(:admin)
+            @admin.confirm!
             sign_in @admin
         end
 
@@ -93,8 +95,8 @@ describe Admin::HealthcatsController do
         end
 
         it "should create new subcat" do
-            get :create, :healthcat => FactoryGirl.attributes_for(:healthcat).merge(:gender => "", :parent_healthcat_id => @healthcat.id)
-            Healthcat.last.parent_healthcat_id.should eq(@healthcat.id)
+            get :create, :healthcat => FactoryGirl.attributes_for(:healthcat).merge(:gender => "", :parent_id => @healthcat.id)
+            Healthcat.last.parent_id.should eq(@healthcat.id)
             Healthcat.last.gender.should eq(@healthcat.gender)
         end
 
@@ -104,7 +106,7 @@ describe Admin::HealthcatsController do
         end
 
         it "should destroy cat and subcats" do
-            Healthcat.create!(FactoryGirl.attributes_for(:healthcat).merge(:gender => "", :parent_healthcat_id => @healthcat.id))
+            Healthcat.create!(FactoryGirl.attributes_for(:healthcat).merge(:gender => "", :parent_id => @healthcat.id))
             delete :destroy, :cats => [@healthcat.id]
             Healthcat.count.should == 0
         end
@@ -132,34 +134,34 @@ describe Admin::HealthcatsController do
 
         it "should move healthcat to childs of another healthcat" do
             post :move, :move_button => true, :cats => [FactoryGirl.create(:healthcat).id], :parent_cat => @healthcat.id
-            Healthcat.last.parent_healthcat_id.should eq(@healthcat.id)
+            Healthcat.last.parent_id.should eq(@healthcat.id)
         end
 
         it "should contain childs of moved ex-parent in new parent" do
-            @child = Healthcat.create!(FactoryGirl.attributes_for(:healthcat).merge(:gender => "", :parent_healthcat_id => @healthcat.id))
+            @child = Healthcat.create!(FactoryGirl.attributes_for(:healthcat).merge(:gender => "", :parent_id => @healthcat.id))
             @new_parent = FactoryGirl.create(:healthcat)
             post :move, :move_button => true, :cats => [@healthcat.id], :parent_cat => @new_parent.id
-            @new_parent.child_healthcats.count.should == 2
+            @new_parent.subcats.count.should == 2
         end
 
         it "should not contain childs in ex-parent" do
-            @child = Healthcat.create!(FactoryGirl.attributes_for(:healthcat).merge(:gender => "", :parent_healthcat_id => @healthcat.id))
+            @child = Healthcat.create!(FactoryGirl.attributes_for(:healthcat).merge(:gender => "", :parent_id => @healthcat.id))
             @new_parent = FactoryGirl.create(:healthcat)
             post :move, :move_button => true, :cats => [@healthcat.id], :parent_cat => @new_parent.id
-            @healthcat.child_healthcats.count.should == 0
+            @healthcat.subcats.count.should == 0
         end
 
         it "should be new parent id in child's parent_healthcat_id" do
-            @child = Healthcat.create!(FactoryGirl.attributes_for(:healthcat).merge(:gender => "", :parent_healthcat_id => @healthcat.id))
+            @child = Healthcat.create!(FactoryGirl.attributes_for(:healthcat).merge(:gender => "", :parent_id => @healthcat.id))
             @new_parent = FactoryGirl.create(:healthcat)
             post :move, :move_button => true, :cats => [@healthcat.id], :parent_cat => @new_parent.id
-            @new_parent.child_healthcats.first.parent_healthcat_id.should eq(@new_parent.id)
+            @new_parent.subcats.first.parent_id.should eq(@new_parent.id)
         end
 
         it "should move category to root level" do
-            @child = Healthcat.create!(FactoryGirl.attributes_for(:healthcat).merge(:gender => "", :parent_healthcat_id => @healthcat.id))
+            @child = Healthcat.create!(FactoryGirl.attributes_for(:healthcat).merge(:gender => "", :parent_id => @healthcat.id))
             post :move, :move_button => true, :cats => [@child.id], :parent_cat => ""
-            Healthcat.may_be_a_parent.count.should == 2
+            Healthcat.all_parents.count.should == 2
         end
     end
 end

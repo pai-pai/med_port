@@ -11,7 +11,7 @@
                     <%= link_to t('shared.actions.add.with_icon_html'), new_admin_healthcat_path, :class => "btn btn-primary" %>
                     <%= submit_tag t('shared.actions.delete.simple'), :name => 'delete_button', :class => "btn" %>
                     <%= submit_tag t('shared.actions.move'), :name => 'move_button', :class => "btn" %>
-                    <%= select_tag :parent_cat, options_from_collection_for_select(Healthcat.may_be_a_parent, :id, :name) + "<option value=''>#{t('shared.move_to_root')}</option>".html_safe, :include_blank => true %>
+                    <%= select_tag :parent_cat, options_from_collection_for_select(Healthcat.all_parents, :id, :name) + "<option value=''>#{t('shared.move_to_root')}</option>".html_safe, :include_blank => true %>
                 </td>
             </tr>
         </tbody>
@@ -37,19 +37,19 @@
                         <td><%= link_to cat.name, edit_admin_healthcat_path(cat.id) %></td>
                         <td class="center"><%= cat.count_of_articles %></td>
                         <td class="small"><%= l cat.created_at.to_time, :format => :short_date %></td>
-                        <% if not cat.child_healthcats.blank? %>
+                        <% if not cat.subcats.blank? %>
                             <td class="display_subcats"><i class="icon-chevron-down pull-right"></i></td>
                         <% else %>
                             <td></td>
                         <% end %>
                     </tr>
-                    <% if not cat.child_healthcats.blank? %>
+                    <% if not cat.subcats.blank? %>
                         <tr class="subcat">
                             <td colspan="5">
                                 <div class="slide_panel">
                                     <table width="100%" class="table">
                                         <tbody>
-                                            <% cat.child_healthcats.each do |child| %>
+                                            <% cat.subcats.each do |child| %>
                                                 <tr>
                                                     <td width="20px"><%= check_box_tag "cats[]", child.id  %></td>
                                                     <td class="child">&mdash;&nbsp;&nbsp;<%= link_to child.name, edit_admin_healthcat_path(child.id) %></td>

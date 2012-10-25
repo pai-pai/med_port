@@ -7,21 +7,20 @@ class Healthcat < ActiveRecord::Base
         [ [ I18n.t('shared.genders.male'), "male" ], [ I18n.t('shared.genders.female'), "female" ] ]
     end
 
-    has_many :subcats, :class_name => "Healthcat"
+    has_many :subcats, :class_name => "Healthcat", :foreign_key => "parent_id"
     belongs_to :parent, :class_name => "Healthcat", :foreign_key => "parent_id"
     has_many :placings, :dependent => :destroy
     has_many :bodyparts, :through => :placings
-    has_many :articles, :dependent => :nullify
+    has_many :articles, as: :categorizable, :dependent => :nullify
 
     scope :all_parents, lambda { where('parent_id IS ?', nil).order(:name) }
-    scope :all_subcats, lambda { where('parent_id IS NOT ?', nil).order(:name) }
 
     validates_presence_of :name
 
     def count_of_articles
         count = 0
-        if not self.subcat.blank?
-            self.subcat.each do |child|
+        if not self.subcats.blank?
+            self.subcats.each do |child|
                 count = count + child.articles.count if not child.articles.blank?
             end
         else

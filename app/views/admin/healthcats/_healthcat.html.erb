@@ -17,7 +17,7 @@
     </div>
 <% else%>
     <% if can? :create, :healthcat %>
-        <% if @healthcat.parent_healthcat.blank? %>
+        <% if @healthcat.parent.blank? %>
             <ul class="subcats">
                 <li><%= link_to t('shared.healthcat.add_new'), { :controller => "healthcats", :action => "new", :parent => @healthcat.id } %></li>
             </ul>

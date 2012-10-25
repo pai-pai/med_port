@@ -12,12 +12,12 @@
         </div>
     </div>
     <div class="control-group">
-        <%= f.label :parent_healthcat_id, :class => "control-label" %>
+        <%= f.label :parent_id, :class => "control-label" %>
         <div class="controls">
             <% if params[:parent] %>
-                <%= f.collection_select :parent_healthcat_id, Healthcat.may_be_a_parent, :id, :name, :include_blank => true, :selected => params[:parent] %>
+                <%= f.collection_select :parent_id, Healthcat.all_parents, :id, :name, :include_blank => true, :selected => params[:parent] %>
             <% else %>
-                <%= f.collection_select :parent_healthcat_id, Healthcat.may_be_a_parent, :id, :name, :include_blank => true %>
+                <%= f.collection_select :parent_id, Healthcat.all_parents, :id, :name, :include_blank => true %>
             <% end %>
         </div>
     </div>
@@ -35,7 +35,7 @@
             <div class="dropdown add_by_click">
                 <a class="dropdown-toggle" data-toggle="dropdown" id="add_parts" href="#"><%= t('shared.actions.add.simple') %></a>
                 <ul class="dropdown-menu" role="menu" aria-labelledby="add_parts">
-                    <% Bodypart.order(:name).all.each do |part| %>
+                    <% @bodyparts.each do |part| %>
                         <li class="enable visible"><%= part.name %></li>
                     <% end %>
                     <li class="nothing_to_add"><%= t('shared.messages.nothing_to_add') %></li>

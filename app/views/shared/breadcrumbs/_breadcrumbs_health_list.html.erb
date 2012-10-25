@@ -1,8 +1,8 @@
 <div>
     <ul class="breadcrumb">
         <li><%= link_to t('healthcats.shared.title'), healthcats_path %> <span class="divider">/</span></li>
-        <% if not @healthcat.parent_healthcat.blank? %>
-            <li><%= link_to @healthcat.parent_healthcat.name, @healthcat.parent_healthcat %> <span class="divider">/</span></li>
+        <% if not @healthcat.parent.blank? %>
+            <li><%= link_to @healthcat.parent.name, @healthcat.parent %> <span class="divider">/</span></li>
         <% end %>
         <li class="active"><%= @healthcat.name %></li>
     </ul>

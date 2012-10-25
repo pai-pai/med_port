@@ -1,12 +1,14 @@
 class Admin::HealthcatsController < ApplicationController
     before_filter :check_authorized
+    before_filter :find_healthcat, :only => [ :edit, :update, :show ]
+    before_filter :bodyparts_list, :only => [ :edit, :update, :new, :create ]
 
     load_and_authorize_resource
 
     layout "dashboard"
 
     def index
-        @healthcats = Healthcat.may_be_a_parent.page(params[:page]).per(50)
+        @healthcats = Healthcat.all_parents.page(params[:page]).per(50)
     end
 
     def new
@@ -23,11 +25,9 @@ class Admin::HealthcatsController < ApplicationController
     end
 
     def edit
-        @healthcat = Healthcat.find(params[:id])
     end
 
     def update
-        @healthcat = Healthcat.find(params[:id])
         if params[:cancel_button] || @healthcat.update_attributes(params[:healthcat])
             redirect_to :controller => 'admin/healthcats', :action => 'index'
         else
@@ -36,18 +36,13 @@ class Admin::HealthcatsController < ApplicationController
     end
 
     def show
-        @healthcat = Healthcat.find(params[:id])
-        @child_healthcats = @healthcat.child_healthcats
-    end
-
-    def show_child
-        @healthcat = Healthcat.find(params[:id])
+        @children = @healthcat.subcats
     end
 
     def destroy
         Healthcat.find(params[:cats]).each do |cat|
-            if not cat.child_healthcats.blank?
-                cat.child_healthcats.each do |child|
+            if not cat.subcats.blank?
+                cat.subcats.each do |child|
                     Healthcat.find(child.id).destroy
                 end
             end
@@ -59,8 +54,8 @@ class Admin::HealthcatsController < ApplicationController
     def move
         if params[:delete_button]
             Healthcat.find(params[:cats]).each do |cat|
-                if not cat.child_healthcats.blank?
-                    cat.child_healthcats.each do |child|
+                if not cat.subcats.blank?
+                    cat.subcats.each do |child|
                         Healthcat.find(child.id).destroy
                     end
                 end
@@ -69,14 +64,23 @@ class Admin::HealthcatsController < ApplicationController
             redirect_to admin_healthcats_path
         elsif params[:move_button]
             Healthcat.find(params[:cats]).each do |cat|
-                if not cat.child_healthcats.blank?
-                    cat.child_healthcats.each do |child|
-                        child.update_attributes(:parent_healthcat_id => params[:parent_cat])
+                if not cat.subcats.blank?
+                    cat.subcats.each do |child|
+                        child.update_attributes(:parent_id => params[:parent_cat])
                     end
                 end
-                cat.update_attributes(:parent_healthcat_id => params[:parent_cat])
+                cat.update_attributes(:parent_id => params[:parent_cat])
             end
             redirect_to admin_healthcats_path
         end        
     end
+
+    private
+        def find_healthcat
+            @healthcat = Healthcat.find(params[:id])
+        end
+
+        def bodyparts_list
+            @bodyparts = Bodypart.order(:name).all
+        end
 end

@@ -3,7 +3,7 @@ class Article < ActiveRecord::Base
 
     attr_accessible :body, :introduction, :name, :translated_name, :healthcat_id
 
-    belongs_to :healthcat
+    belongs_to :categorizable, polymorphic: true
     has_many :taggings, :dependent => :destroy
     has_many :tags, :through => :taggings
 

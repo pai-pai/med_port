@@ -5,7 +5,9 @@ describe "pages/home.html.erb" do
     describe "if user is authenticated" do
         before(:each) do
             @request.env["devise.mapping"] = Devise.mappings[:user]
-            sign_in FactoryGirl.create(:user)
+            @user = FactoryGirl.create(:user)
+            @user.confirm!
+            sign_in @user
         end
 
         it "should not contain sign up link" do
@@ -22,7 +24,9 @@ describe "pages/home.html.erb" do
     describe "if user is admin" do
         before(:each) do
             @request.env["devise.mapping"] = Devise.mappings[:admin]
-            sign_in FactoryGirl.create(:admin)
+            @admin = FactoryGirl.create(:admin)
+            @admin.confirm!
+            sign_in @admin
         end
 
         it "should contain link to administration's panel" do

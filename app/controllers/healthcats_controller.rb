@@ -1,6 +1,8 @@
 class HealthcatsController < ApplicationController
     load_and_authorize_resource
 
+    before_filter :find_healthcat, :except => [:index, :new, :create]
+
     def index
         @healthcats = Healthcat.all_parents
     end
@@ -19,11 +21,9 @@ class HealthcatsController < ApplicationController
     end
 
     def edit
-        @healthcat = Healthcat.find(params[:id])
     end
 
     def update
-        @healthcat = Healthcat.find(params[:id])
         if params[:cancel_button] || @healthcat.update_attributes(params[:healthcat])
             redirect_to healthcats_path
         else
@@ -32,16 +32,13 @@ class HealthcatsController < ApplicationController
     end
 
     def show
-        @healthcat = Healthcat.find(params[:id])
         @children = @healthcat.subcats
-    end
-
-    def show_child
-        @healthcat = Healthcat.find(params[:id])
+        @categorizable = @healthcat
+        @articles = @categorizable.articles
+        @article = Article.new
     end
 
     def destroy
-        @healthcat = Healthcat.find(params[:id])
         @children = @healthcat.subcats
         if not @children.blank?
             @children.each do |child|
@@ -51,4 +48,9 @@ class HealthcatsController < ApplicationController
         @healthcat.destroy
         redirect_to healthcats_path
     end
+
+    private
+        def find_healthcat
+            @healthcat = Healthcat.find(params[:id])
+        end
 end
