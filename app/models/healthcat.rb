@@ -11,7 +11,7 @@ class Healthcat < ActiveRecord::Base
     belongs_to :parent, :class_name => "Healthcat", :foreign_key => "parent_id"
     has_many :placings, :dependent => :destroy
     has_many :bodyparts, :through => :placings
-    has_many :articles, as: :categorizable, :dependent => :nullify
+    has_many :articles, :as => :categorizable
 
     scope :all_parents, lambda { where('parent_id IS ?', nil).order(:name) }
 

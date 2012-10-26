@@ -1,41 +1,41 @@
 class ArticlesController < ApplicationController
+    load_and_authorize_resource
+
     before_filter :load_categorizable
-    before_filter :find_article, :except => [ :index, :new, :create ]
 
     def index
         @articles = @categorizable.articles
     end
 
     def new
-        #@article = @categorizable.articles.new
+        @article = Article.new
     end
 
     def create
-#@article = @categorizable.articles.new(params[:article])
-#        if params[:cancel_button] || @article.save
-#            redirect_to admin_articles_path
-#        else
-#            render :new
-#        end
+        @article = Article.new(params[:article])
+        @article.categorizable = @categorizable
+        @article.save!
+        redirect_to healthcats_path
     end
 
     def edit
+        @article = @categorizable.articles.find(params[:id])
     end
 
     def update
-        if params[:cancel_button] || @article.update_attributes(params[:article])
-            redirect_to :controller => 'admin/articles', :action => 'index'
-        else
-            render :edit
-        end
+        @article = @categorizable.articles.find(params[:id])
+        @article.update_attributes(params[:healthcat])
+        redirect_to healthcats_path
     end
 
     def show
+        @article = @categorizable.articles.find(params[:id])
     end
 
     def destroy
-        @article.each { |article| article.destroy}
-        redirect_to admin_articles_path
+        @article = @categorizable.articles.find(params[:id])
+        @article.destroy
+        redirect_to root_path
     end
 
     private
@@ -44,9 +44,8 @@ class ArticlesController < ApplicationController
         end
 
         def load_categorizable
-		    resource, id = request.path.split('/')[1, 2]
-            @res = resource
-            @this = id
-#@categorizable = resource.singularize.classify.constantize.find(id)
+            if params[:resource]
+                @categorizable = params[:resource].classify.constantize.find(params[:cat_id])
+            end
 		end
 end

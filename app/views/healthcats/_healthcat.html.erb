@@ -9,14 +9,16 @@
             <li><%= link_to article.name, article %></li>
         <% end %>
     <% end %>
-    <li><%= link_to "New Article", new_healthcat_healthcat_article_path %></li>
+    <% if can? :create, :article %>
+        <li><%= link_to "New Article", { :controller => "articles", :action => "new", :resource => "healthcats", :cat_id => @healthcat.id } %></li>
+    <% end %>
 </ul>
 <% if not @children.blank? %>
     <div class="show_group">
         <h5><%= t('healthcats.shared.childrens_list') %></h5>
         <ul class="subcats">
             <% @children.each do |child| %>
-                <li><%= link_to child.name, [@healthcat, child] %></li>
+                <li><%= link_to child.name,  [@healthcat, child ] %></li>
             <% end %>
             <% if can? :create, :healthcat %>
                 <li><%= link_to t('healthcats.shared.add_new'), { :controller => "healthcats", :action => "new", :parent => @healthcat.id } %></li>

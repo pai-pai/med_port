@@ -32,10 +32,10 @@ class HealthcatsController < ApplicationController
     end
 
     def show
+        @healthcat = Healthcat.find(params[:id])
         @children = @healthcat.subcats
         @categorizable = @healthcat
         @articles = @categorizable.articles
-        @article = Article.new
     end
 
     def destroy

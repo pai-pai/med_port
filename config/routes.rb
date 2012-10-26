@@ -7,11 +7,12 @@ MedPort::Application.routes.draw do
 
     resources :users, :only => [ :show, :index ]
     resources :categories
-    resources :healthcats, :path => "zabolevaniya/categories" do
+    resources :healthcats do
         resources :healthcats, :path => "/subcats" do
-            resources :articles
+            resources :articles, :only => [ :show, :index ]
         end
     end
+    resources :articles
     resources :bodyparts
     resources :tags
     resources :organizations

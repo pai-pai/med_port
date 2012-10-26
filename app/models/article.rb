@@ -1,9 +1,9 @@
 class Article < ActiveRecord::Base
     include Translator
 
-    attr_accessible :body, :introduction, :name, :translated_name, :healthcat_id
+    attr_accessible :body, :introduction, :name, :translated_name, :categorizable_id, :categorizable_type
 
-    belongs_to :categorizable, polymorphic: true
+    belongs_to :categorizable, :polymorphic => true
     has_many :taggings, :dependent => :destroy
     has_many :tags, :through => :taggings
 
