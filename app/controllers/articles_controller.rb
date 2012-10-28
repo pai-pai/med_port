@@ -1,7 +1,7 @@
 class ArticlesController < ApplicationController
     load_and_authorize_resource
 
-    before_filter :load_categorizable
+    before_filter :find_categorizable, :except => [ :show ]
 
     def index
         @articles = @categorizable.articles
@@ -12,10 +12,14 @@ class ArticlesController < ApplicationController
     end
 
     def create
-        @article = Article.new(params[:article])
-        @article.categorizable = @categorizable
-        @article.save!
-        redirect_to healthcats_path
+        @article = @categorizable.articles.new(params[:article])
+        if params[:cancel_button] || @article.save
+            respond_to do |format|
+                format.html {redirect_to :controller => @categorizable.class.to_s.pluralize.downcase, :action => :show, :id => @categorizable.id}
+            end
+        else
+            render :new
+        end
     end
 
     def edit
@@ -29,7 +33,7 @@ class ArticlesController < ApplicationController
     end
 
     def show
-        @article = @categorizable.articles.find(params[:id])
+        @article = Article.find(params[:id])
     end
 
     def destroy
@@ -43,9 +47,8 @@ class ArticlesController < ApplicationController
             @article = @categorizable.articles.find(params[:id])
         end
 
-        def load_categorizable
-            if params[:resource]
-                @categorizable = params[:resource].classify.constantize.find(params[:cat_id])
-            end
+        def find_categorizable
+            @klass = params[:categorizable_type].capitalize.constantize
+            @categorizable = @klass.find(params[:categorizable_id])
 		end
 end

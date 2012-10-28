@@ -346,6 +346,7 @@ ru:
         shared:
             title: Статьи
             prompt_for_healthcat: Выберите категорию
+            add_new: Добавить статью
     tags:
         shared:
             title: Тэги

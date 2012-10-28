@@ -6,11 +6,11 @@
 <ul class="unstyled">
     <% if not @articles.blank? %>
         <% @articles.each do |article| %>
-            <li><%= link_to article.name, article %></li>
+            <li><%= link_to article.name, :controller => "articles", :action => "show", :id => article %></li>
         <% end %>
     <% end %>
     <% if can? :create, :article %>
-        <li><%= link_to "New Article", { :controller => "articles", :action => "new", :resource => "healthcats", :cat_id => @healthcat.id } %></li>
+        <li class="add_new"><%= link_to t('articles.shared.add_new'), { :controller => "articles", :action => "new", :categorizable_type => "healthcat", :categorizable_id => @healthcat.id } if not @healthcat.parent.blank? %></li>
     <% end %>
 </ul>
 <% if not @children.blank? %>
@@ -21,7 +21,7 @@
                 <li><%= link_to child.name,  [@healthcat, child ] %></li>
             <% end %>
             <% if can? :create, :healthcat %>
-                <li><%= link_to t('healthcats.shared.add_new'), { :controller => "healthcats", :action => "new", :parent => @healthcat.id } %></li>
+                <li class="add_new"><%= link_to t('healthcats.shared.add_new'), { :controller => "healthcats", :action => "new", :parent => @healthcat.id } %></li>
             <% end %>
         </ul>
     </div>

@@ -35,6 +35,8 @@
             </div>
         </div>
     </div>
+    <%= hidden_field_tag 'categorizable_type', 'healthcat' %>
+    <%= hidden_field_tag 'categorizable_id', @categorizable.id %>
     <div class="control-group">
         <div class="controls">
             <%= f.submit t('shared.actions.save'), {:class => "btn-primary btn"} %>
