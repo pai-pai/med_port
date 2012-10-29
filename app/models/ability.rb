@@ -2,7 +2,7 @@ class Ability
     include CanCan::Ability
 
     def initialize(user)
-        can :read, Healthcat
+        can :read, :all
 
         if user.try(:admin?)
             can :manage, :all

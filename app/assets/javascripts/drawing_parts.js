@@ -19,29 +19,21 @@ function prepareCanvas(){
         canvas = G_vmlCanvasManager.initElement(canvas);
     }
     context = canvas.getContext("2d");
-    drawBackground();
+    //drawBackground();
 
     $('#canvas').mousedown(function(e){
         var mouseX = e.pageX - this.offsetLeft;
         var mouseY = e.pageY - this.offsetTop;
-        paint = true;
-        addClick(e.pageX - this.offsetLeft, e.pageY - this.offsetTop);
-        redraw();
-    });
-
-    $('#canvas').mousemove(function(e){
-        if(paint){
-            addClick(e.pageX - this.offsetLeft, e.pageY - this.offsetTop, true);
-            redraw();
-        }
-    });
-
-    $('#canvas').mouseup(function(e){
-        paint = false;
-    });
-
-    $('#canvas').mouseleave(function(e){
-        paint = false;
+        if (clickX.length == 0) {
+            context.beginPath();
+            context.moveTo(mouseX, mouseY);
+            paint = true;
+        } else {
+            context.lineTo(mouseX, mouseY);
+            context.clearRect(0, 0, canvasWidth, canvasHeight);
+            context.stroke();
+        };
+        addPoint(mouseX, mouseY);
     });
 }
 
@@ -52,37 +44,28 @@ function drawBackground(){
     backImage.src = "http://0.0.0.0:3000/assets/Nyan_Cat.jpg";
 }
 
-function addClick(x, y, dragging){
+function addPoint(x, y){
     clickX.push(x);
-    clickY.push(y);
-    clickDrag.push(dragging);
-}
-
-function redraw(){
-    context.strokeStyle = "#df4b26";
-    context.lineJoin = "round";
-    context.lineWidth = 5;
-			
-    for(var i=0; i < clickX.length; i++)
-    {		
-        context.beginPath();
-        if(clickDrag[i] && i){
-            context.moveTo(clickX[i-1], clickY[i-1]);
-        }else{
-            context.moveTo(clickX[i]-1, clickY[i]);
-        }
-        context.lineTo(clickX[i], clickY[i]);
-        context.closePath();
-        context.stroke();
-    }
+    clickY.push(y); 
 }
 
 function clearCanvas(){
     clickX = new Array();
     clickY = new Array();
-    clickDrag = new Array();
+    paint = false;
     context.clearRect(0, 0, canvasWidth, canvasHeight);
-    drawBackground();
+   // drawBackground();
+}
+
+function closing(){
+    if (clickX.length > 2) { 
+        context.closePath();
+        context.clearRect(0, 0, canvasWidth, canvasHeight);
+        context.stroke();
+        paint = false;
+        str = clickX.join(", ") + ": " + clickY.join(", ");
+        console.log(str);
+    };
 }
 
 window.onload = function() {
@@ -90,7 +73,6 @@ window.onload = function() {
 }
 
 $(document).ready(function(){
-    $('#clear').click(function(){
-        clearCanvas();
-    });
+    $('#clear').click(function(){ clearCanvas(); });
+    $('#close_path').click(function(){ closing(); });
 })
