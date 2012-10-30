@@ -6,9 +6,10 @@
         </div>
     </div>
     <div class="control-group">
-        <%= f.label :healthcat_id, :class => "control-label" %>
+        <%= f.label :categorizable_id, :class => "control-label" %>
         <div class="controls">
-            <%= grouped_collection_select(:article, :healthcat_id, Healthcat.may_be_a_parent, :child_healthcats, :name, :id, :name, :prompt => t('articles.shared.prompt_for_healthcat')) %>
+            <%= hidden_field_tag 'categorizable_type', 'healthcat' %>
+            <%= grouped_collection_select(:article, :categorizable_id, Healthcat.all_parents, :subcats, :name, :id, :name, :prompt => t('articles.shared.prompt_for_healthcat')) %>
         </div>
     </div>
     <ul class="nav nav-tabs" id="article_healthcats_tabs">

@@ -22,14 +22,14 @@ FactoryGirl.define do
         description { "#{'Ave, Caesar! Morituri te salutant! '*300}" }
     end
 
-    factory :healthcat do
+    factory :healthcat, :aliases => [ :categorizable ] do
         sequence(:name) { |n| "Healthcat name #{n}" }
         description { "#{'Amor non est medicabilis herbis '*300}" }
         gender { "male" }
     end
 
     factory :article do
-        healthcat
+        categorizable
         sequence(:name) { |n| "What 's done is done #{n}" }
         introduction { "#{'For Brutus is an honourable man; So are they all, all honourable men '*100}" }
         body { "#{'Have more than thou showest, speak less than thou knowest, lend less than thou owest '*300}" }

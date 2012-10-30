@@ -1,10 +1,14 @@
 class ArticlesController < ApplicationController
     load_and_authorize_resource
 
-    before_filter :find_categorizable, :except => [ :show ]
+    before_filter :find_categorizable, :except => [ :index, :health, :show ]
 
     def index
-        @articles = @categorizable.articles
+        @articles = Article.all
+    end
+
+    def health
+        @articles = Article.all_healthcats
     end
 
     def new

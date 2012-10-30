@@ -7,8 +7,8 @@ MedPort::Application.routes.draw do
 
     resources :users, :only => [ :show, :index ]
     resources :categories
-    resources :healthcats do
-        resources :healthcats, :path => "/subcats" do
+    resources :healthcats, :path => "sprav/cats"  do
+        resources :healthcats, :path => "/subcats", :as => :subcats do
             resources :articles, :only => [ :show, :index ]
         end
     end
@@ -18,6 +18,7 @@ MedPort::Application.routes.draw do
     resources :organizations
 
     match "home" => "pages#home", :as => "home"
+    match "sprav/articles" => "articles#health", :as => "health_articles"
 
     namespace :admin do
         match "home" => "pages#home", :as => "home"

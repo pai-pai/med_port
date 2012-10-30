@@ -7,6 +7,8 @@ class Article < ActiveRecord::Base
     has_many :taggings, :dependent => :destroy
     has_many :tags, :through => :taggings
 
+    scope :all_healthcats, lambda { where('categorizable_type IS ?', "Healthcat").order(:name) }
+
     validates_presence_of :name, :body
     validates_uniqueness_of :name
 

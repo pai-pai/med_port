@@ -37,6 +37,7 @@ describe Admin::ArticlesController do
     describe "if user is authenticated" do
         before(:each) do
             @user = FactoryGirl.create(:user)
+            @user.confirm!
             sign_in @user
         end
 
@@ -69,6 +70,7 @@ describe Admin::ArticlesController do
     describe "if user is admin" do
         before(:each) do
             @admin = FactoryGirl.create(:admin)
+            @admin.confirm!
             sign_in @admin
         end
 

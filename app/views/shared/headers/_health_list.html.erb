@@ -9,7 +9,7 @@
                     <%= link_to t('health_list.categories'), healthcats_path %></li>
                 <% end %>
                 <%= content_tag :li, :class => ('active' if params[:controller] == "articles" && params[:action] == "index") do %>
-                    <%= link_to t('health_list.abc') %></li>
+                    <%= link_to t('health_list.abc'), articles_path %></li>
                 <% end %>
                 <%= content_tag :li, :class => ('active' if params[:controller] == "tags" && params[:action] == "index") do %>
                     <%= link_to t('health_list.tags') %></li>
