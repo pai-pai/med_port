@@ -8,7 +8,7 @@ class ArticlesController < ApplicationController
     end
 
     def health
-        @articles = Article.all_healthcats
+        @groups = Article.all_healthcats.group_by { |article| article.name[0] }
     end
 
     def new
@@ -19,7 +19,7 @@ class ArticlesController < ApplicationController
         @article = @categorizable.articles.new(params[:article])
         if params[:cancel_button] || @article.save
             respond_to do |format|
-                format.html {redirect_to :controller => @categorizable.class.to_s.pluralize.downcase, :action => :show, :id => @categorizable.id}
+                format.html { redirect_to healthcat_subcat_path( @article.categorizable.parent, @article.categorizable ) }
             end
         else
             render :new

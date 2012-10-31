@@ -5,13 +5,26 @@
 <%= render 'shared/healthcats/title_menu' %>
 
 <div class="container-fluid">
-        <% if @articles.blank? %>
-            <p><%= t('shared.no_info') %></p>
-        <% else %>
+    <ul class="nav nav-pills">
+        <% @groups.each_key do |letter| %>
+            <li><a href="#<%= letter %>"><%= letter %></a></li>
+        <% end %>
+    </ul>
+</div>
+<div class="container-fluid">
+    <% if @articles.blank? %>
+        <p><%= t('shared.no_info') %></p>
+    <% else %>
+        <% @groups.each_pair do |letter, group| %>
+            <h3><a class="anchor" name="<%= letter %>"><%= letter %></a></h3>
             <ul class="unstyled">
-                <% @articles.each do |article| %>
-                    <li><%= link_to article.name, article %></li>
+                <% group.each do |article| %>
+                    <li>
+                        <%= link_to article.name, healthcat_subcat_article_path(article.categorizable.parent, article.categorizable, article) %>
+                        <span class="label label-info label_health"><%= link_to article.categorizable.parent.name, healthcat_subcat_path(article.categorizable.parent, article.categorizable) %></span>
+                    </li>
                 <% end %>
             </ul>
         <% end %>
-    </div>
+    <% end %>
+</div>

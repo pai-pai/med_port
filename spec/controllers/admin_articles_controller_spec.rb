@@ -90,7 +90,8 @@ describe Admin::ArticlesController do
         end
 
         it "should create an article" do
-            get :create, :article => FactoryGirl.attributes_for(:article)
+            @categorizable = FactoryGirl.create(:healthcat)
+            get :create, :article => FactoryGirl.attributes_for(:article).merge({ :categorizable_id => @categorizable.id }), :categorizable_type => "Healthcat"
             Article.all.count.should == 2
         end
 
@@ -105,6 +106,8 @@ describe Admin::ArticlesController do
         end
 
         it "should update an article" do
+            @categorizable = FactoryGirl.create(:healthcat)
+            @article = Article.create(FactoryGirl.attributes_for(:article).merge({ :categorizable_id => @categorizable.id, :categorizable_type => "Healthcat" }))
             put :update, :id => @article
             @article.update_attributes(:name => "New name")
             Article.last.name.should eq("New name")

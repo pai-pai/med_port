@@ -343,6 +343,12 @@ ru:
     articles:
         index:
             title: Статьи
+        health:
+            title: Справочник заболеваний
+        new:
+            title: Добавление статьи
+        edit:
+            title: Редактирование статьи
         shared:
             title: Статьи
             prompt_for_healthcat: Выберите категорию

@@ -35,7 +35,7 @@ class HealthcatsController < ApplicationController
         @healthcat = Healthcat.find(params[:id])
         @children = @healthcat.subcats
         @categorizable = @healthcat
-        @articles = @categorizable.articles
+        @articles = @categorizable.articles.order(:name)
     end
 
     def destroy

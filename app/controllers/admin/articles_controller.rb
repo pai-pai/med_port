@@ -1,5 +1,6 @@
 class Admin::ArticlesController < ApplicationController
     before_filter :check_authorized
+    before_filter :find_categorizable, :only => [ :create, :update ]
 
     load_and_authorize_resource
 
@@ -16,7 +17,7 @@ class Admin::ArticlesController < ApplicationController
     end
 
     def create
-        @article = Article.new(params[:article])
+        @article = @categorizable.articles.new(params[:article])
         if params[:cancel_button] || @article.save
             redirect_to admin_articles_path
         else
@@ -45,4 +46,10 @@ class Admin::ArticlesController < ApplicationController
         Article.find(params[:articles]).each { |article| article.destroy}
         redirect_to admin_articles_path
     end
+
+    private
+        def find_categorizable
+            @klass = params[:categorizable_type].capitalize.constantize
+            params[:categorizable_id].blank? ? @categorizable = @klass.find(params[:article]["categorizable_id"]) : @categorizable = @klass.find(params[:categorizable_id])
+		end
 end
