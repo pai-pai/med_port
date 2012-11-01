@@ -26,6 +26,7 @@ group :development, :test do
     gem "rspec-rails", "~> 2.11.0"
     gem "taps", "~> 0.3.24"
     gem "factory_girl_rails", :require => false
+    gem "debugger"
 end
 
 group :development do

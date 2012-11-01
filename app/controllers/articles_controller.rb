@@ -32,7 +32,7 @@ class ArticlesController < ApplicationController
 
     def update
         @article = @categorizable.articles.find(params[:id])
-        @article.update_attributes(params[:healthcat])
+        @article.update_attributes(params[:article])
         redirect_to healthcats_path
     end
 

@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'debugger'
 
 describe Admin::ArticlesController do
     render_views
@@ -91,7 +92,8 @@ describe Admin::ArticlesController do
 
         it "should create an article" do
             @categorizable = FactoryGirl.create(:healthcat)
-            get :create, :article => FactoryGirl.attributes_for(:article).merge({ :categorizable_id => @categorizable.id }), :categorizable_type => "Healthcat"
+            @attr = FactoryGirl.attributes_for(:article).merge({ :categorizable_id => @categorizable.id })
+            get :create, :article => @attr, :categorizable_type => "Healthcat"
             Article.all.count.should == 2
         end
 
@@ -107,8 +109,9 @@ describe Admin::ArticlesController do
 
         it "should update an article" do
             @categorizable = FactoryGirl.create(:healthcat)
-            @article = Article.create(FactoryGirl.attributes_for(:article).merge({ :categorizable_id => @categorizable.id, :categorizable_type => "Healthcat" }))
-            put :update, :id => @article
+            @attr = FactoryGirl.attributes_for(:article).merge({ :categorizable_id => @categorizable.id, :categorizable_type => Healthcat })
+            @article = @categorizable.articles.create!(@attr)
+            put :update, :id => @article.id.to_i, :article => @attr
             @article.update_attributes(:name => "New name")
             Article.last.name.should eq("New name")
         end
