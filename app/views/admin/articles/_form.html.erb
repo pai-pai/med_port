@@ -6,7 +6,7 @@
         </div>
     </div>
     <div class="control-group">
-        <%= hidden_field_tag 'categorizable_type', 'Healthcat' %>
+        <%= hidden_field_tag "categorizable_type", "Healthcat" %>
         <%= f.label :categorizable_id, :class => "control-label" %>
         <div class="controls">
             <%= grouped_collection_select(:article, :categorizable_id, Healthcat.all_parents, :subcats, :name, :id, :name, :prompt => t('articles.shared.prompt_for_healthcat')) %>

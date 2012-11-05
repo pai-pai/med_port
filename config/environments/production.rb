@@ -1,20 +1,13 @@
 MedPort::Application.configure do
-#    require 'tlsmail'    
-#    Net::SMTP.enable_tls(OpenSSL::SSL::VERIFY_NONE)
-#
-#    ActionMailer::Base.delivery_method = :smtp
-#    ActionMailer::Base.perform_deliveries = true
-#    ActionMailer::Base.raise_delivery_errors = true
-#    ActionMailer::Base.smtp_settings = {
-#        :enable_starttls_auto => true,  
-#        :address            => 'smtp.gmail.com',
-#        :port               => 587,
-#        :tls                => true,
-#        :domain             => 'gmail.com', #you can also use google.com
-#        :authentication     => :plain,
-#        :user_name          => 'paimai.dororo@gmail.com',
-#        :password           => 'htgkfyn+26*03'
-#    }
+    ActionMailer::Base.smtp_settings = {
+      :address        => 'smtp.sendgrid.net',
+      :port           => '587',
+      :authentication => :plain,
+      :user_name      => ENV['SENDGRID_USERNAME'],
+      :password       => ENV['SENDGRID_PASSWORD'],
+      :domain         => 'heroku.com'
+    }
+    ActionMailer::Base.delivery_method = :smtp
 
     # Settings specified here will take precedence over those in config/application.rb
 
@@ -69,16 +62,6 @@ MedPort::Application.configure do
     # config.action_mailer.delivery_method = :sendmail
     # config.action_mailer.perform_deliveries = true
     # config.action_mailer.raise_delivery_errors = true
-
-    config.action_mailer.delivery_method = :smtp
-    config.action_mailer.smtp_settings = {
-        :address              => "smtp.gmail.com",
-        :port                 => 587,
-        :domain               => 'protected-sands-7729.herokuapp.com',
-        :user_name            => 'paimai.dororo@gmail.com',
-        :password             => 'htgkfyn+26*03',
-        :authentication       => 'plain',
-        :enable_starttls_auto => true  }
 
     # Enable threaded mode
     # config.threadsafe!

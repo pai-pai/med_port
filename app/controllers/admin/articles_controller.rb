@@ -30,7 +30,7 @@ class Admin::ArticlesController < ApplicationController
     end
 
     def update
-        @article = Article.find(params[:id])
+        @article = @categorizable.articles.find(params[:id])
         if params[:cancel_button] || @article.update_attributes(params[:article])
             redirect_to :controller => 'admin/articles', :action => 'index'
         else
@@ -49,7 +49,11 @@ class Admin::ArticlesController < ApplicationController
 
     private
         def find_categorizable
-            @klass = params[:categorizable_type].capitalize.constantize
-            params[:categorizable_id].blank? ? @categorizable = @klass.find(params[:article]["categorizable_id"]) : @categorizable = @klass.find(params[:categorizable_id])
+            if params[:article]["categorizable_type"].blank?
+                @klass = params[:categorizable_type].capitalize.constantize 
+            else
+                @klass = params[:article]["categorizable_type"].constantize
+            end
+            @categorizable = @klass.find(params[:article]["categorizable_id"])
 		end
 end
