@@ -18,6 +18,7 @@ MedPort::Application.routes.draw do
     resources :organizations
 
     match "home" => "pages#home", :as => "home"
+    match "parallax" => "pages#parallax", :as => "parallax" #remove (test parallax scrolling)
     match "sprav/articles" => "articles#health", :as => "health_articles"
 
     namespace :admin do
