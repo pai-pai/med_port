@@ -2,44 +2,22 @@ html, body {
     padding: 0;
     margin: 0;
 }
-#home {
-  background: url(/assets/perfect_speed_DESKTOP.jpg) 0 50% repeat fixed; 
-  min-height: 620px;
-  height: 620px;
-  margin: 0 auto;
-  width: 1800px;
-  max-width: 1920px;
-  float:left;
-  position: relative;
+#day_sky {
+   background: url(/assets/01_Day_01_Sky.png) 0 50% repeat fixed; 
+   min-height: 768px;
+   height: 620px;
+   margin: 0 auto;
+   min-width: 1280px;
+   max-width: 1366px;
+   float: left;
+   position: relative;
 }
-#home article {
-  height: 470px;
-  position: absolute;
-  text-align: center;
-  top: 150px;
-  width: 1800px;
-  color: black;
-  font-size: 36px;
-}
-#about {
-  background: url(/assets/Winter_Waltz.jpg) 0 50% repeat fixed; 
-  min-height: 620px;
-  height: 620px;
-  margin: 0 auto;
-  width: 1280px;
-  max-width: 1920px;
-  position: relative;
-  top: 0px;
-  left: 1790px;
-  -webkit-box-shadow: 0 0 50px rgba(0,0,0,0.8);
-  box-shadow: 0 0 50px rgba(0,0,0,0.8);
-}
-#about article {
-  height: 470px;
-  position: absolute;
-  text-align: center;
-  top: 150px;
-  width: 1280px;
-  color: white;
-  font-size: 48px;
+#day_forest {
+    height: 158px;
+    position: absolute;
+    text-align: center;
+    background: url(/assets/01_Day_02_Forest.png) 0 10px no-repeat fixed;
+    top: 150px;
+    min-width: 1280px;
+    max-width: 1366px;
 }
