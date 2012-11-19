@@ -3,9 +3,9 @@
     <head>
 	    <meta http-equiv="content-type" content="text/html; charset=utf-8">
         <title>Parallax test</title>
-        <link href="/assets/parallax.css?body=1" media="all" rel="stylesheet" type="text/css" />
-        <script src="/assets/jquery.js?body=1" type="text/javascript"></script>
-        <script src="/assets/parallax.js?body=1" type="text/javascript"></script>
+        <%= stylesheet_link_tag "application", :media => "all" %>
+        <%= javascript_include_tag "application" %>
+        <%= csrf_meta_tags %>
     </head>
     <body>
         <section id="day_sky" data-type="background" data-speed="6">
