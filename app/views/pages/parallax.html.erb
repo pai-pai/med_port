@@ -4,14 +4,18 @@
 	    <meta http-equiv="content-type" content="text/html; charset=utf-8">
         <title>Parallax test</title>
         <link href="/assets/parallax.css?body=1" media="all" rel="stylesheet" type="text/css" />
-        <%= javascript_include_tag "application" %>
+        <script src="/assets/jquery.js?body=1" type="text/javascript"></script>
+        <script src="/assets/parallax.js?body=1" type="text/javascript"></script>
     </head>
     <body>
-        <section id="day_sky" data-type="background" data-speed="3">
-            <div id="day_forest" data-type="background" data-speed="2.5"></div>
+        <section id="day_sky" data-type="background" data-speed="6">
+            <div id="day_forest" data-type="background" data-speed="3"></div>
             <div id="day_trees" data-type="background" data-speed="2"></div>
             <div id="day_man"></div>
             <div id="day_ducks" data-type="background" data-speed="4"></div>
         </section>
+        <div id="day_info_box">
+            Здесь будет Город-сад!
+        </div>
     </body>
 </html>

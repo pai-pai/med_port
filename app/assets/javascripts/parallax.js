@@ -1,12 +1,24 @@
+var reObj;
+var xPos;
+var coords;
+
+function redraw(obj, shift, y){
+    $reObj = obj;
+    xPos = -($(window).scrollLeft() * $reObj.data('speed')) - shift;
+    coords = xPos + 'px ' + y;
+    $reObj.css({ backgroundPosition: coords });
+}
+
 $(document).ready(function(){
-    $('*[data-type="background"]').each(function(){
-        var $bgobj = $(this); // assigning the object
-        $(window).scroll(function() {
-            var xPos = -($(window).scrollLeft() * $bgobj.data('speed'));
-            // Put together our final background position
-            var coords = xPos + 'px 50%';
-            // Move the background
-            $bgobj.css({ backgroundPosition: coords });
-        });
+    $(window).scroll(function() {
+        redraw( $('#day_sky'), 0, '50%' );
+        redraw( $('#day_forest'), 0, '150px' );
+        redraw( $('#day_trees'), 1000, '159px' );
+        redraw( $('#day_ducks'), (-1366), '582px' );
+        if ($(window).scrollLeft() > 100 && $(window).scrollLeft() < 350) {
+            $('#day_info_box').show();
+        } else {
+            $('#day_info_box').hide();
+        };
     });
 });
