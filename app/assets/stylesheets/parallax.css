@@ -21,6 +21,10 @@ html, body {
     background: url(/assets/03_Night_01_Sky.png) 0 50% repeat-x fixed;
     left: 2732px;
 }
+#morning_sky {
+    background: url(/assets/04_Morning_01_Sky.png) 0 50% repeat-x fixed;
+    left: 4098px;
+}
 
 .forest {
     height: 158px;
@@ -33,6 +37,13 @@ html, body {
 }
 #evening_forest {
     background: url(/assets/02_Evening_02_Forest.png) 0 150px repeat-x fixed;
+}
+#night_forest {
+    height: 185px;
+    background: url(/assets/03_Night_02_Forest.png) 0 150px repeat-x fixed;
+}
+#morning_forest {
+    background: url(/assets/04_Morning_02_Forest.png) 0 150px repeat-x fixed;
 }
 
 .trees {
@@ -63,7 +74,7 @@ html, body {
 #fore {
     height: 568px;
     position: absolute;
-    /*background: url(/assets/Fore.png) 0 0 no-repeat;*/
+    background: url(/assets/Fore.png) 0 0 no-repeat;
     top: 55px;
     width: 5464px; 
 }
@@ -75,12 +86,12 @@ html, body {
     width: 1366px;
     z-index: 5;
 }
-#day_info_box {
+
+.info_box {
     height: 80%;
-    top: 500%;
+    top: 5%;
     position: fixed;
     width: 400px;
-    left: 450px;
     background-color: white;
     opacity: 0.87;
     filter: alpha(opacity=87);
@@ -93,4 +104,6 @@ html, body {
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
     padding: 1.8em 1em; 
     display: none;
+    left: 450px;
+    overflow-y: scroll;
 }
