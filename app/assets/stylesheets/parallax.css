@@ -1,6 +1,8 @@
 html, body {
     padding: 0;
     margin: 0;
+    max-height: 366px;
+    overflow-y: hidden;
 }
 .sky {
     height: 768px;
@@ -33,17 +35,35 @@ html, body {
     background: url(/assets/02_Evening_02_Forest.png) 0 150px repeat-x fixed;
 }
 
+.trees {
+    width: 1366px;
+    position: absolute;
+}
 #day_trees {
     height: 266px;
-    position: absolute;
-    background: url(/assets/01_Day_03_Trees.png) -1000px 159px no-repeat fixed;
+    background: url(/assets/01_Day_03_Trees.png) 0 159px no-repeat fixed;
     top: 159px;
-    width: 1366px;
 }
+#evening_trees {
+    height: 391px;
+    background: url(/assets/02_Evening_03_Trees.png) 1366px 33px no-repeat fixed;
+    top: 33px;
+}
+#night_trees {
+    height: 404px;
+    background: url(/assets/03_Night_03_Trees.png) 3279px 34px no-repeat fixed;
+    top: 34px;
+}
+#morning_trees {
+    height: 182px;
+    background: url(/assets/04_Morning_03_Trees.png) 5192px 249px no-repeat fixed;
+    top: 249px;
+}
+
 #fore {
     height: 568px;
     position: absolute;
-    background: url(/assets/Fore.png) 0 0 no-repeat;
+    /*background: url(/assets/Fore.png) 0 0 no-repeat;*/
     top: 55px;
     width: 5464px; 
 }
@@ -53,10 +73,11 @@ html, body {
     background: url(/assets/01_Day_00_Ducks.png) -800px 582px no-repeat fixed;
     top: 582px;
     width: 1366px;
+    z-index: 5;
 }
 #day_info_box {
     height: 80%;
-    top: 5%;
+    top: 500%;
     position: fixed;
     width: 400px;
     left: 450px;
