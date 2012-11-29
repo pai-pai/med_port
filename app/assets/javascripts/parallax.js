@@ -3,6 +3,16 @@ var xPos;
 var coords;
 var speed;
 
+function resize(){
+    if ($("#day_sky").height() < 800) {
+        $("#top_info").css( "background-image", "url(/assets/Logo_small.png)" );
+    } else {
+    };
+    $("#fore").css("top", ($(window).height() - $("#fore").height())/2);
+    $(".info_box").css({ "height" : $(window).height() - 90, "top" : 20 });
+    $("#day_ducks").css( "top", $(window).height() - $("#day_ducks").height() );
+}
+
 function redraw(obj, shift, moveto){
     xPos = $(window).scrollLeft() * obj.data('speed');
     if (moveto == 'left') { xPos = -(xPos) };
@@ -12,8 +22,12 @@ function redraw(obj, shift, moveto){
 }
 
 $(document).ready(function(){
+    resize();
     $(document).bind('mousewheel', function(event, delta) {
         $("body").stop().animate( { scrollLeft: $("body").scrollLeft() + (-70 * delta) }, 200 );
+    });
+    $(window).resize(function(){ 
+        resize();
     });
     $(window).scroll(function() {
         redraw( $('#day_sky'), 0, 'left' );
