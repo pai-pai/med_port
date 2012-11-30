@@ -82,9 +82,9 @@ html, body {
 #day_ducks {
     height: 212px;
     position: absolute;
-    background: url(/assets/01_Day_00_Ducks.png) -800px 582px no-repeat fixed;
+    background: url(/assets/01_Day_00_Ducks.png) -800px 0 no-repeat fixed;
     width: 1366px;
-    z-index: 3;
+    z-index: 10;
 }
 
 .info_box {
@@ -104,7 +104,6 @@ html, body {
     display: none;
     left: 450px;
     overflow-y: auto;
-    z-index: 4;
 }
 
 .fixed {

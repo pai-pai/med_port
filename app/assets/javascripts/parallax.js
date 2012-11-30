@@ -10,7 +10,7 @@ function resize(){
     };
     $("#fore").css("top", ($(window).height() - $("#fore").height())/2);
     $(".info_box").css({ "height" : $(window).height() - 90, "top" : 20 });
-    $("#day_ducks").css( "top", $(window).height() - $("#day_ducks").height() );
+    $("#day_ducks").css({ "top": $(window).height() - $("#day_ducks").height(), "background-position": ($("#day_ducks").css("background-position").split(" "))[0] + " " + ($(window).height() - $("#day_ducks").height()) + "px" });
 }
 
 function redraw(obj, shift, moveto){
@@ -41,7 +41,7 @@ $(document).ready(function(){
         redraw( $('#night_trees'), -3279, 'left' );
         redraw( $('#morning_trees'), -5192, 'left' );
         redraw( $('#day_ducks'), 800, 'right' );
-        if ($(window).scrollLeft() > 125 && $(window).scrollLeft() < 675) {
+        /*if ($(window).scrollLeft() > 125 && $(window).scrollLeft() < 675) {
             $('#day_info').fadeIn();
         } else {
             $('#day_info').fadeOut();
@@ -60,6 +60,6 @@ $(document).ready(function(){
             $('#morning_info').fadeIn();
         } else {
             $('#morning_info').fadeOut();
-        };
+        };*/
     });
 });
