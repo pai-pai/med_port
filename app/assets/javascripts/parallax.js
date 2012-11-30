@@ -8,7 +8,7 @@ function resize(){
         $("#top_info").css( "background-image", "url(/assets/Logo_small.png)" );
     } else {
     };
-    $("#fore").css("top", ($(window).height() - $("#fore").height())/2);
+    $(".fore").css("top", ($(window).height() - $(".fore").height())/2);
     $(".info_box").css({ "height" : $(window).height() - 90, "top" : 20 });
     $("#day_ducks").css({ "top": $(window).height() - $("#day_ducks").height(), "background-position": ($("#day_ducks").css("background-position").split(" "))[0] + " " + ($(window).height() - $("#day_ducks").height()) + "px" });
 }
@@ -37,29 +37,14 @@ $(document).ready(function(){
         redraw( $('#night_forest'), 0, 'left' );
         redraw( $('#morning_forest'), 0, 'left' );
         redraw( $('#day_trees'), 0, 'left' );
-        redraw( $('#evening_trees'), -1366, 'left' );
-        redraw( $('#night_trees'), -3279, 'left' );
-        redraw( $('#morning_trees'), -5192, 'left' );
+        redraw( $('#evening_trees'), -2041, 'left' );
+        redraw( $('#night_trees'), -5176, 'left' );
+        redraw( $('#morning_trees'), -7764, 'left' );
         redraw( $('#day_ducks'), 800, 'right' );
         /*if ($(window).scrollLeft() > 125 && $(window).scrollLeft() < 675) {
             $('#day_info').fadeIn();
         } else {
             $('#day_info').fadeOut();
-        };
-        if ($(window).scrollLeft() > 1491 && $(window).scrollLeft() < 2041) {
-            $('#evening_info').fadeIn();
-        } else {
-            $('#evening_info').fadeOut();
-        };
-        if ($(window).scrollLeft() > 2857 && $(window).scrollLeft() < 3407) {
-            $('#night_info').fadeIn();
-        } else {
-            $('#night_info').fadeOut();
-        };
-        if ($(window).scrollLeft() > 4098 && $(window).scrollLeft() < 4773) {
-            $('#morning_info').fadeIn();
-        } else {
-            $('#morning_info').fadeOut();
         };*/
     });
 });
