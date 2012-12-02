@@ -4,11 +4,22 @@ var coords;
 var speed;
 
 function resize(){
-    if ($("#day_sky").height() < 800) {
+    if ($(window).height() < 900) {
         $("#top_info").css( "background-image", "url(/assets/Logo_small.png)" );
+        $("#clouds").css( "background-image", "url(/assets/01_Day_00_Clouds_small.png)" );
+        $("#swans").css("background-image", "url(/assets/02_Evening_00_Swans_small.png)");
+        $("#moon").css("background-image", "url(/assets/03_Night_00_Moon_small.png)");
+        $("#ufo").css("background-image", "url(/assets/03_Night_00_UFO_small.png)");
     } else {
+        $("#top_info").css( "background-image", "url(/assets/Logo.png)" );
+        $("#clouds").css( "background-image", "url(/assets/01_Day_00_Clouds.png)" );
+        $("#swans").css("background-image", "url(/assets/02_Evening_00_Swans.png)");
+        $("#moon").css("background-image", "url(/assets/03_Night_00_Moon.png)");
+        $("#ufo").css("background-image", "url(/assets/03_Night_00_UFO.png)");
     };
     $(".fore").css("top", ($(window).height() - $(".fore").height())/2);
+    console.log($("#day_fore").css("top"));
+    jQuery.each($(".trees"), function(){ $(this).css({ "bottom" : $(window).height()/2 - 30, "background-position" : ($(this).css("background-position").split(" "))[0] + " " + (parseInt($(this).css("bottom")) - $(this).height()/2) + "px" }); });
     $(".info_box").css({ "height" : $(window).height() - 90, "top" : 20 });
     $("#day_ducks").css({ "top": $(window).height() - $("#day_ducks").height(), "background-position": ($("#day_ducks").css("background-position").split(" "))[0] + " " + ($(window).height() - $("#day_ducks").height()) + "px" });
 }
@@ -26,20 +37,21 @@ $(document).ready(function(){
     $(document).bind('mousewheel', function(event, delta) {
         $("body").stop().animate( { scrollLeft: $("body").scrollLeft() + (-70 * delta) }, 200 );
     });
-    $(window).resize(function(){ 
-        resize();
-    });
+    $(window).resize(function(){ resize(); });
     $(window).scroll(function() {
-        redraw( $('#day_sky'), 0, 'left' );
+        redraw( $('#clouds'), -1200, 'left' );
+        redraw( $('#swans'), -5998, 'left' );
+        redraw( $('#moon'), -5132, 'left' );
+        redraw( $('#ufo'), -10664, 'left' );
         redraw( $('#night_sky'), 0, 'left' );
         redraw( $('#day_forest'), 0, 'left' );
         redraw( $('#evening_forest'), 0, 'left' );
         redraw( $('#night_forest'), 0, 'left' );
         redraw( $('#morning_forest'), 0, 'left' );
         redraw( $('#day_trees'), 0, 'left' );
-        redraw( $('#evening_trees'), -2041, 'left' );
-        redraw( $('#night_trees'), -5176, 'left' );
-        redraw( $('#morning_trees'), -7764, 'left' );
+        redraw( $('#evening_trees'), -2766, 'left' );
+        redraw( $('#night_trees'), -6079, 'left' );
+        redraw( $('#morning_trees'), -8992, 'left' );
         redraw( $('#day_ducks'), 800, 'right' );
         /*if ($(window).scrollLeft() > 125 && $(window).scrollLeft() < 675) {
             $('#day_info').fadeIn();

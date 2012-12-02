@@ -7,35 +7,59 @@ html, body {
 .big_block {
     height: 100%;
     max-height: 1204px;
-    width: 675px;
+    width: 700px;
     position: absolute;
+    padding: 125px 150px;
 }
-#after_day { left: 1366px; }
-#after_evening { left: 3407px; }
-#after_night { left: 5448px; }
+#after_day { left: 1366px; } /* day_sky.width */
+#after_evening { left: 3732px; } /* day_sky.width + big_block.width + evening_sky.width */
+#after_night { left: 6098px; } /* day_sky.width + big_block.width + evening_sky.width + big_block.width + night_sky.width */
+
+.object {
+    width: 1366px;
+    position: absolute;
+    height: 100%;
+}
+
+#clouds { background: url(/assets/01_Day_00_Clouds.png) 1200px 50% no-repeat fixed; }
+#swans { background: url(/assets/02_Evening_00_Swans.png) 5998px 50% no-repeat fixed; }
+#moon { background: url(/assets/03_Night_00_Moon.png) 5232px 50% no-repeat fixed; }
+#ufo { background: url(/assets/03_Night_00_UFO.png) 10664px 50% no-repeat fixed; }
 
 .sky {
     height: 100%;
     max-height: 1204px;
     width: 1366px;
     position: absolute;
+    -moz-background-size: auto 105%;
+    -o-background-size: auto 105%;
+    -webkit-background-size: auto 105%;
+    background-size: auto 105%;
+    background-position: 0 45%;
 }
 
 #day_sky {
     background: url(/assets/01_Day_01_Sky.png) repeat-x fixed;
-    background-position: 0 50%; 
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='assets/01_Day_01_Sky.png', sizingMethod='scale');
+    -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='assets/01_Day_01_Sky.png', sizingMethod='scale')";
 }
 #evening_sky {
-    background: url(/assets/02_Evening_01_Sky.png) 0 50% repeat-x fixed;
-    left: 2041px;
+    background: url(/assets/02_Evening_01_Sky.png) repeat-x fixed;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='assets/02_Evening_01_Sky.png', sizingMethod='scale');
+    -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='assets/02_Evening_01_Sky.png', sizingMethod='scale')";
+    left: 2366px;
 }
 #night_sky {
-    background: url(/assets/03_Night_01_Sky.png) 0 50% repeat-x fixed;
-    left: 4082px;
+    background: url(/assets/03_Night_01_Sky.png) repeat-x fixed;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='assets/03_Night_01_Sky.png', sizingMethod='scale');
+    -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='assets/03_Night_01_Sky.png', sizingMethod='scale')";
+    left: 4732px;
 }
 #morning_sky {
-    background: url(/assets/04_Morning_01_Sky.png) 0 50% repeat-x fixed;
-    left: 6123px;
+    background: url(/assets/04_Morning_01_Sky.png) repeat-x fixed;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='assets/04_Morning_01_Sky.png', sizingMethod='scale');
+    -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='assets/04_Morning_01_Sky.png', sizingMethod='scale')";
+    left: 7098px;
 }
 
 .forest {
@@ -64,23 +88,23 @@ html, body {
 }
 #day_trees {
     height: 266px;
-    background: url(/assets/01_Day_03_Trees.png) 0 164px no-repeat fixed;
-    top: 164px;
+    background: url(/assets/01_Day_03_Trees.png) 0 144px no-repeat fixed;
+    /*top: 144px;*/
 }
 #evening_trees {
-    height: 391px;
-    background: url(/assets/02_Evening_03_Trees.png) 2041px 39px no-repeat fixed;
-    top: 39px;
+    height: 392px;
+    background: url(/assets/02_Evening_03_Trees.png) 2913px 18px no-repeat fixed; /* position-x = day_sky.width + big_block.width + 547px */
+    /*top: 18px;*/
 }
 #night_trees {
-    height: 404px;
-    background: url(/assets/03_Night_03_Trees.png) 5176px 26px no-repeat fixed;
-    top: 26px;
+    height: 391px;
+    background: url(/assets/03_Night_03_Trees.png) 6373px 19px no-repeat fixed; /* position-x = day_sky.width + big_block.width + 547px + evening_sky.width + big_block.width + 547px + 547px */
+    /*top: 19px;*/
 }
 #morning_trees {
-    height: 182px;
-    background: url(/assets/04_Morning_03_Trees.png) 7764px 248px no-repeat fixed;
-    top: 248px;
+    height: 280px;
+    background: url(/assets/04_Morning_03_Trees.png) 9286px 140px no-repeat fixed; /* position-x = day_sky.width + big_block.width + 547px + evening_sky.width + big_block.width + 547px + night_sky.width + big_block.width + 547px + 547px */
+    /*top: 140px;*/
 }
 
 .fore {
