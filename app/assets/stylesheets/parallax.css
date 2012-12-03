@@ -35,28 +35,27 @@ html, body {
     -o-background-size: auto 105%;
     -webkit-background-size: auto 105%;
     background-size: auto 105%;
-    background-position: 0 45%;
 }
 
 #day_sky {
-    background: url(/assets/01_Day_01_Sky.png) repeat-x fixed;
+    background: url(/assets/01_Day_01_Sky.png) 0 50% repeat-x fixed;
     filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='assets/01_Day_01_Sky.png', sizingMethod='scale');
     -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='assets/01_Day_01_Sky.png', sizingMethod='scale')";
 }
 #evening_sky {
-    background: url(/assets/02_Evening_01_Sky.png) repeat-x fixed;
+    background: url(/assets/02_Evening_01_Sky.png) 0 50% repeat-x fixed;
     filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='assets/02_Evening_01_Sky.png', sizingMethod='scale');
     -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='assets/02_Evening_01_Sky.png', sizingMethod='scale')";
     left: 2366px;
 }
 #night_sky {
-    background: url(/assets/03_Night_01_Sky.png) repeat-x fixed;
+    background: url(/assets/03_Night_01_Sky.png) 0 50% repeat-x fixed;
     filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='assets/03_Night_01_Sky.png', sizingMethod='scale');
     -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='assets/03_Night_01_Sky.png', sizingMethod='scale')";
     left: 4732px;
 }
 #morning_sky {
-    background: url(/assets/04_Morning_01_Sky.png) repeat-x fixed;
+    background: url(/assets/04_Morning_01_Sky.png) 0 50% repeat-x fixed;
     filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='assets/04_Morning_01_Sky.png', sizingMethod='scale');
     -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='assets/04_Morning_01_Sky.png', sizingMethod='scale')";
     left: 7098px;
