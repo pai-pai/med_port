@@ -17,9 +17,11 @@ function resize(){
         $("#moon").css("background-image", "url(/assets/03_Night_00_Moon.png)");
         $("#ufo").css("background-image", "url(/assets/03_Night_00_UFO.png)");
     };
-    $(".fore").css("top", ($(window).height() - $(".fore").height())/2);
+    $(".fore").css( "top", ($(window).height() - $(".fore").height())/2 );
     $(".trees").each(function() { $(this).css({ "top" : ( ($(window).height())/2 + 89 ) - $(this).height(), "background-position" : ($(this).css("background-position").split(" "))[0] + " " + ( ( ($(window).height())/2 + 89 ) - $(this).height() ) + "px" }) });
     $(".forest").each(function() { $(this).css({ "top" : ($(window).height())/2 - 186, "background-position" : ($(this).css("background-position").split(" "))[0] + " " + ( ($(window).height())/2 - 186 ) + "px" }) });
+    $("#lilies").css( "top", ($(window).height())/2 + 89 );
+    $("#frog").css( "top", ($(window).height())/2 + 89 - $("#frog").height()/2 );
     $(".info_box").css({ "height" : $(window).height() - 90, "top" : 20 });
     $("#day_ducks").css({ "top": $(window).height() - $("#day_ducks").height(), "background-position": ($("#day_ducks").css("background-position").split(" "))[0] + " " + ($(window).height() - $("#day_ducks").height()) + "px" });
 }

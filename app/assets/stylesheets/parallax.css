@@ -25,7 +25,8 @@ html, body {
 #swans { background: url(/assets/02_Evening_00_Swans.png) 5998px 50% no-repeat fixed; }
 #moon { background: url(/assets/03_Night_00_Moon.png) 5232px 50% no-repeat fixed; }
 #ufo { background: url(/assets/03_Night_00_UFO.png) 10664px 50% no-repeat fixed; }
-#lilies { height: background: url(/assets/04_Morning_00_Lilies.png) 0 0 no-repeat fixed; }
+#lilies { height: 104px; width: 277px; background: url(/assets/04_Morning_00_Lilies.png) 0 0 no-repeat; position: absolute; left: 100px; }
+#frog { height: 165px; width: 135px; background: url(/assets/04_Morning_00_Frog.png) 0 0 no-repeat; position: absolute; right: 266px; }
 
 .sky {
     height: 100%;
