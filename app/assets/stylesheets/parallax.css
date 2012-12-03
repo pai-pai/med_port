@@ -11,9 +11,9 @@ html, body {
     position: absolute;
     padding: 125px 150px;
 }
-#after_day { left: 1366px; } /* day_sky.width */
-#after_evening { left: 3732px; } /* day_sky.width + big_block.width + evening_sky.width */
-#after_night { left: 6098px; } /* day_sky.width + big_block.width + evening_sky.width + big_block.width + night_sky.width */
+#after_day { left: 1366px; } 
+#after_evening { left: 3732px; }
+#after_night { left: 6098px; } 
 
 .object {
     width: 1366px;
@@ -25,6 +25,7 @@ html, body {
 #swans { background: url(/assets/02_Evening_00_Swans.png) 5998px 50% no-repeat fixed; }
 #moon { background: url(/assets/03_Night_00_Moon.png) 5232px 50% no-repeat fixed; }
 #ufo { background: url(/assets/03_Night_00_UFO.png) 10664px 50% no-repeat fixed; }
+#lilies { height: background: url(/assets/04_Morning_00_Lilies.png) 0 0 no-repeat fixed; }
 
 .sky {
     height: 100%;
@@ -65,20 +66,19 @@ html, body {
     height: 158px;
     width: 1366px;
     position: absolute;
-    top: 150px;
 }
 #day_forest {
-    background: url(/assets/01_Day_02_Forest.png) 0 150px repeat-x fixed;
+    background: url(/assets/01_Day_02_Forest.png) 0 0 repeat-x fixed;
 }
 #evening_forest {
-    background: url(/assets/02_Evening_02_Forest.png) 0 150px repeat-x fixed;
+    background: url(/assets/02_Evening_02_Forest.png) 0 0 repeat-x fixed;
 }
 #night_forest {
     height: 185px;
-    background: url(/assets/03_Night_02_Forest.png) 0 150px repeat-x fixed;
+    background: url(/assets/03_Night_02_Forest.png) 0 0 repeat-x fixed;
 }
 #morning_forest {
-    background: url(/assets/04_Morning_02_Forest.png) 0 150px repeat-x fixed;
+    background: url(/assets/04_Morning_02_Forest.png) 0 0 repeat-x fixed;
 }
 
 .trees {
@@ -87,23 +87,19 @@ html, body {
 }
 #day_trees {
     height: 266px;
-    background: url(/assets/01_Day_03_Trees.png) 0 144px no-repeat fixed;
-    /*top: 144px;*/
+    background: url(/assets/01_Day_03_Trees.png) 0 0 no-repeat fixed;
 }
 #evening_trees {
     height: 392px;
-    background: url(/assets/02_Evening_03_Trees.png) 2913px 18px no-repeat fixed; /* position-x = day_sky.width + big_block.width + 547px */
-    /*top: 18px;*/
+    background: url(/assets/02_Evening_03_Trees.png) 2913px 0 no-repeat fixed; 
 }
 #night_trees {
     height: 391px;
-    background: url(/assets/03_Night_03_Trees.png) 6373px 19px no-repeat fixed; /* position-x = day_sky.width + big_block.width + 547px + evening_sky.width + big_block.width + 547px + 547px */
-    /*top: 19px;*/
+    background: url(/assets/03_Night_03_Trees.png) 6373px 0 no-repeat fixed;
 }
 #morning_trees {
     height: 280px;
-    background: url(/assets/04_Morning_03_Trees.png) 9286px 140px no-repeat fixed; /* position-x = day_sky.width + big_block.width + 547px + evening_sky.width + big_block.width + 547px + night_sky.width + big_block.width + 547px + 547px */
-    /*top: 140px;*/
+    background: url(/assets/04_Morning_03_Trees.png) 9286px 0 no-repeat fixed;
 }
 
 .fore {
