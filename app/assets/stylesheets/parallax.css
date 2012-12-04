@@ -118,7 +118,6 @@ html, body {
     position: absolute;
     background: url(/assets/01_Day_00_Ducks.png) -800px 0 no-repeat fixed;
     width: 1366px;
-    z-index: 10;
 }
 
 .info_box {
@@ -157,4 +156,22 @@ html, body {
     color: white;
     font-weight: bold;
     text-shadow: 1px 1px 3px #06C;
+}
+
+#buttons_panel {
+    position: fixed;
+    bottom: 30px;
+    left: 20px;
+}
+#buttons_panel ul {
+    list-style-type: none;
+    margin: 0;
+}
+#buttons_panel a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 12px;
+    text-shadow: 1px 1px 3px #06C;
+    cursor: pointer;
 }

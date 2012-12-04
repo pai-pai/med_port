@@ -2,6 +2,10 @@ var obj;
 var xPos;
 var coords;
 var speed;
+var anchor;
+var time;
+
+time = [ "day", "evening", "night", "morning" ];
 
 function resize(){
     if ($(window).height() < 900) {
@@ -10,12 +14,17 @@ function resize(){
         $("#swans").css("background-image", "url(/assets/02_Evening_00_Swans_small.png)");
         $("#moon").css("background-image", "url(/assets/03_Night_00_Moon_small.png)");
         $("#ufo").css("background-image", "url(/assets/03_Night_00_UFO_small.png)");
+        $("#buttons_panel a").css({ "background" : "url(/assets/Button_small.png) 0 -30px no-repeat", "padding" : "8px 0 8px 35px", "line-height" : "30px", "height" : "30px" });
+        $("#buttons_panel li").css("margin-bottom", "5px");
+        $("#buttons_panel a").hover(function(){ $(this).css("background-position", "0 0") }, function(){ $(this).css("background-position", "0 -30px") });
     } else {
         $("#top_info").css( "background-image", "url(/assets/Logo.png)" );
         $("#clouds").css( "background-image", "url(/assets/01_Day_00_Clouds.png)" );
         $("#swans").css("background-image", "url(/assets/02_Evening_00_Swans.png)");
         $("#moon").css("background-image", "url(/assets/03_Night_00_Moon.png)");
         $("#ufo").css("background-image", "url(/assets/03_Night_00_UFO.png)");
+        $("#buttons_panel a").css({ "background" : "url(/assets/Button.png) 0 -45px no-repeat", "padding" : "16px 0 16px 55px", "line-height" : "46px", "height" : "45px" });
+        $("#buttons_panel li").css("margin-bottom", "10px");
     };
     $(".fore").css( "top", ($(window).height() - $(".fore").height())/2 );
     $(".trees").each(function() { $(this).css({ "top" : ( ($(window).height())/2 + 89 ) - $(this).height(), "background-position" : ($(this).css("background-position").split(" "))[0] + " " + ( ( ($(window).height())/2 + 89 ) - $(this).height() ) + "px" }) });
@@ -32,6 +41,10 @@ function redraw(obj, shift, moveto){
     xPos = xPos - shift;
     coords = xPos + 'px ' + (obj.css("background-position").split(" "))[1];
     obj.css({ backgroundPosition: coords });
+}
+
+function goToAnchor(anchor){
+    $("body").animate( { scrollLeft: $("a[name='" + anchor + "']").offset().left }, "slow" );
 }
 
 $(document).ready(function(){
@@ -61,4 +74,7 @@ $(document).ready(function(){
             $('#day_info').fadeOut();
         };*/
     });
+    for (var i=0; i<time.length; i++) {
+        $("#" + time[i] + "_link").click(function(){ console.log($(this).attr("data-anchor")); goToAnchor( $(this).attr("data-anchor") ) });
+    };
 });
