@@ -2,6 +2,7 @@ var obj;
 var xPos;
 var coords;
 var speed;
+var block;
 var anchor;
 var time;
 
@@ -43,6 +44,14 @@ function redraw(obj, shift, moveto){
     obj.css({ backgroundPosition: coords });
 }
 
+function compareScroll(block, min, max){
+    if ($(window).scrollLeft() > min && $(window).scrollLeft() < max) {
+        block.fadeIn();
+    } else {
+        block.fadeOut();
+    };
+}
+
 function goToAnchor(anchor){
     $("body").animate( { scrollLeft: $("a[name='" + anchor + "']").offset().left }, "slow" );
 }
@@ -73,6 +82,9 @@ $(document).ready(function(){
         } else {
             $('#day_info').fadeOut();
         };*/
+        compareScroll( $("#day_info"), 75, 375 );
+        compareScroll( $("#evening_info"), 2191, 2491 );
+        compareScroll( $("#night_info"), 4827, 5127 );
     });
     for (var i=0; i<time.length; i++) {
         $("#" + time[i] + "_link").click(function(){ console.log($(this).attr("data-anchor")); goToAnchor( $(this).attr("data-anchor") ) });

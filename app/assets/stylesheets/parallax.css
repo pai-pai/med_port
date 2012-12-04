@@ -120,9 +120,20 @@ html, body {
     width: 1366px;
 }
 
-.info_box {
-    position: fixed;
-    width: 475px;
+.mini_block {
+    position: absolute;
+    top: 55%;
+    display: none;
+}
+#day_info { left: 400px; }
+#evening_info { left: 2516px; }
+#night_info { left: 5152px; }
+.mini_block .text { 
+    padding: 7px 10px; 
+    font-family: "Helvetica Neue", Helvetica,Arial, sans-serif;
+    color: #005DBA;
+    font-size: 12px;
+    line-height: 17px;
     background-color: white;
     opacity: 0.87;
     filter: alpha(opacity=87);
@@ -133,10 +144,7 @@ html, body {
     -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
     -moz-box-shadow: 0 5px 10px rgba(0,0,0,0.2);
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-    padding: 1.8em 1em; 
-    display: none;
-    left: 450px;
-    overflow-y: auto;
+    width: 400px;
 }
 
 .fixed {
