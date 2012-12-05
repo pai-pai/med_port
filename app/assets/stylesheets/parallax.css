@@ -3,6 +3,7 @@ html, body {
     margin: 0;
     max-height: 1204px;
     overflow-y: hidden;
+    font-family: "Helvetica Neue", Helvetica,Arial, sans-serif;
 }
 .big_block {
     height: 100%;
@@ -130,7 +131,6 @@ html, body {
 #night_info { left: 5152px; }
 .mini_block .text { 
     padding: 7px 10px; 
-    font-family: "Helvetica Neue", Helvetica,Arial, sans-serif;
     color: #005DBA;
     font-size: 12px;
     line-height: 17px;
