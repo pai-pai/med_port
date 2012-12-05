@@ -17,6 +17,10 @@ function resize(){
         $("#buttons_panel a").css({ "background" : "url(/assets/Button_small.png) 0 -30px no-repeat", "padding" : "8px 0 7px 35px", "line-height" : "30px", "height" : "30px" });
         $("#buttons_panel li").css("margin-bottom", "5px");
         $("#buttons_panel a").hover(function(){ $(this).css("background-position", "0 0") }, function(){ $(this).css("background-position", "0 -30px") });
+        $(".mini_block .image").css({ "background-image" : "url(/assets/Badges_small.png)", "height" : "76px", "width" : "76px", "top" : "-38px", "left" : "382px" });
+
+        $("evening_info .image").css( {"background-position" : "0 76px"} );
+        $("night_info .image").css( {"background-position" : "0 152px"} );
     } else {
         $("#top_info").css( "background-image", "url(/assets/Logo.png)" );
         $("#clouds").css( "background-image", "url(/assets/01_Day_00_Clouds.png)" );
@@ -78,7 +82,7 @@ var time = new Array ( "day", "evening", "night", "morning" );
 $(document).ready(function(){
     resize();
     $(document).bind("mousewheel", function(event, delta) { $("body").stop().animate( {scrollLeft: $("body").scrollLeft() + (-70 * delta)}, 200 )});
-    $(window).resize(function(){ resize() });
+    $(window).resize(function(){ resize(); });
     $(window).scroll(function() {
         for (var j=0; j<pxObj.length; j++) { redraw(pxObj[j]) };
         for (var k=0; k<cmpObj.length; k++) { compareScroll(cmpObj[k]) };

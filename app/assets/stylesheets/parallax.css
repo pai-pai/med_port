@@ -11,7 +11,6 @@ html, body {
     width: 700px;
     position: absolute;
     padding: 125px 150px;
-    background: url(/assets/Badges.png) 0 0 repeat;
 }
 #after_day { left: 1366px; } 
 #after_evening { left: 3732px; }
@@ -144,13 +143,8 @@ html, body {
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
     width: 400px;
 }
-.mini_block .image {
-    width: 155px;
-    height: 155px;
-    background: url(/assets/Badges.png) 0 0 repeat;
-}
+.mini_block .image { position: relative; background-repeat: no-repeat; }
 #day_info { left: 400px; }
-#day_info .image {  }
 #evening_info { left: 2516px; }
 #night_info { left: 5152px; }
 
