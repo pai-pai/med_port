@@ -8,7 +8,7 @@ var anchor;
 var winHeight = $(window).height();
 
 function resize(){
-    if (winHeight < 800) {
+    if (winHeight < 900) {
         $("#top_info").css( "background-image", "url(/assets/Logo_small.png)" );
         $("#clouds").css( "background-image", "url(/assets/01_Day_00_Clouds_small.png)" );
         $("#swans").css("background-image", "url(/assets/02_Evening_00_Swans_small.png)");
@@ -77,10 +77,8 @@ var time = new Array ( "day", "evening", "night", "morning" );
 
 $(document).ready(function(){
     resize();
-    $(document).bind("mousewheel", function(event, delta) {
-        $("body").stop().animate( { scrollLeft: $("body").scrollLeft() + (-70 * delta) }, 200 );
-    });
-    $(window).resize(function(){ resize(); });
+    $(document).bind("mousewheel", function(event, delta) { $("body").stop().animate( {scrollLeft: $("body").scrollLeft() + (-70 * delta)}, 200 )});
+    $(window).resize(function(){ resize() });
     $(window).scroll(function() {
         for (var j=0; j<pxObj.length; j++) { redraw(pxObj[j]) };
         for (var k=0; k<cmpObj.length; k++) { compareScroll(cmpObj[k]) };
