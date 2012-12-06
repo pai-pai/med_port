@@ -17,10 +17,10 @@ function resize(){
         $("#buttons_panel a").css({ "background" : "url(/assets/Button_small.png) 0 -30px no-repeat", "padding" : "8px 0 7px 35px", "line-height" : "30px", "height" : "30px" });
         $("#buttons_panel li").css("margin-bottom", "5px");
         $("#buttons_panel a").hover(function(){ $(this).css("background-position", "0 0") }, function(){ $(this).css("background-position", "0 -30px") });
-        $(".mini_block .image").css({ "background-image" : "url(/assets/Badges_small.png)", "height" : "76px", "width" : "76px", "top" : "-38px", "left" : "382px" });
-
-        $("evening_info .image").css( {"background-position" : "0 76px"} );
-        $("night_info .image").css( {"background-position" : "0 152px"} );
+        $(".mini_block .image").css({ "background-image" : "url(/assets/Badges_small_100.png)", "height" : "100px", "width" : "100px", "top" : "-50px", "left" : "370px" });
+        $("#evening_info .image").css( "background-position", "0 -100px" );
+        $("#night_info .image").css( "background-position", "0 -200px" );
+        $(".mini_block .stoper").css({ "height" : "50px", "width" : "50px" });
     } else {
         $("#top_info").css( "background-image", "url(/assets/Logo.png)" );
         $("#clouds").css( "background-image", "url(/assets/01_Day_00_Clouds.png)" );
@@ -30,7 +30,12 @@ function resize(){
         $("#buttons_panel a").css({ "background" : "url(/assets/Button.png) 0 -45px no-repeat", "padding" : "16px 0 16px 55px", "line-height" : "46px", "height" : "45px" });
         $("#buttons_panel li").css("margin-bottom", "10px");
         $("#buttons_panel a").hover(function(){ $(this).css("background-position", "0 0") }, function(){ $(this).css("background-position", "0 -45px") });
+        $(".mini_block .image").css({ "background-image" : "url(/assets/Badges_small_100.png)", "height" : "155px", "width" : "155px", "top" : "-76px", "left" : "344px" });
+        $("#evening_info .image").css( "background-position", "0 -155px" );
+        $("#night_info .image").css( "background-position", "0 -310px" );
+        $(".mini_block .stoper").css({ "height" : "76px", "width" : "76px" });
     };
+    $(".mini_block .empty").css( "height", $(".mini_block .text").height() - $(".mini_block .stoper").height() );
     $(".fore").css( "top", (winHeight - $(".fore").height())/2 );
     $(".trees").each(function() { $(this).css({ "top" : ( winHeight/2 + 89 ) - $(this).height(), "background-position" : ($(this).css("background-position").split(" "))[0] + " " + ( ( winHeight/2 + 89 ) - $(this).height() ) + "px" }) });
     $(".forest").each(function() { $(this).css({ "top" : winHeight/2 - 186, "background-position" : ($(this).css("background-position").split(" "))[0] + " " + ( winHeight/2 - 186 ) + "px" }) });

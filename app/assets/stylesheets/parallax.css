@@ -125,6 +125,7 @@ html, body {
     position: absolute;
     top: 55%;
     display: none;
+    display: table-cell;
 }
 .mini_block .text { 
     padding: 7px 10px; 
@@ -142,6 +143,14 @@ html, body {
     -moz-box-shadow: 0 5px 10px rgba(0,0,0,0.2);
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
     width: 400px;
+}
+.mini_block .empty {
+    float: right;
+    width: 1px;
+}
+.mini_block .stoper {
+    clear: right;
+    float: right;
 }
 .mini_block .image { position: relative; background-repeat: no-repeat; }
 #day_info { left: 400px; }
