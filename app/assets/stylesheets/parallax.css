@@ -125,7 +125,6 @@ html, body {
     position: absolute;
     top: 55%;
     display: none;
-    display: table-cell;
 }
 .mini_block .text { 
     padding: 7px 10px; 
