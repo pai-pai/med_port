@@ -16,6 +16,7 @@ function resize(){
     var winHeight = $(window).height();
     if (winHeight < 900) {
         for ( var m=0; m<resizables.length; m++ ) { $(resizables[m][0]).css( "background-image", "url(/assets/" + resizables[m][1] + "_small.png)" ); };
+        $("#top_link").css({ "height" : "128px", "width" : "128px" });
         $("#buttons_panel a").css({ "background" : "url(/assets/Button_small.png) 0 -30px no-repeat", "padding" : "8px 0 7px 35px", "line-height" : "30px", "height" : "30px" });
         $("#buttons_panel li").css("margin-bottom", "5px");
         $("#buttons_panel a").hover(function(){ $(this).css("background-position", "0 0") }, function(){ $(this).css("background-position", "0 -30px") });
@@ -25,6 +26,7 @@ function resize(){
         $(".mini_block .stoper").css({ "height" : "50px", "width" : "50px" });
     } else {
         for ( var m=0; m<resizables.length; m++ ) { $(resizables[m][0]).css( "background-image", "url(/assets/" + resizables[m][1] + ".png)" ); };
+        $("#top_link").css({ "height" : "192px", "width" : "192px" });
         $("#buttons_panel a").css({ "background" : "url(/assets/Button.png) 0 -45px no-repeat", "padding" : "16px 0 16px 55px", "line-height" : "46px", "height" : "45px" });
         $("#buttons_panel li").css("margin-bottom", "10px");
         $("#buttons_panel a").hover(function(){ $(this).css("background-position", "0 0") }, function(){ $(this).css("background-position", "0 -45px") });
@@ -68,9 +70,9 @@ function goToAnchor(anchor){
 
 var pxObj = new Array ();
 pxObj[0]  = new Array ( "#clouds", 1200 );
-pxObj[1]  = new Array ( "#swans", 5998 );
+pxObj[1]  = new Array ( "#swans", 4498 );
 pxObj[2]  = new Array ( "#moon", 5132 );
-pxObj[3]  = new Array ( "#ufo", 10664 );
+pxObj[3]  = new Array ( "#ufo", 9064 );
 pxObj[4]  = new Array ( "#night_sky", 0 );
 pxObj[5]  = new Array ( "#day_forest", 0 );
 pxObj[6]  = new Array ( "#evening_forest", 0 );
@@ -80,14 +82,14 @@ pxObj[9]  = new Array ( "#day_trees", 0 );
 pxObj[10] = new Array ( "#evening_trees", 2766 );
 pxObj[11] = new Array ( "#night_trees", 6079 );
 pxObj[12] = new Array ( "#morning_trees", 8992 );
-pxObj[13] = new Array ( "#day_ducks", -800, "right");
+pxObj[13] = new Array ( "#day_ducks", 50, "right");
 
 var cmpObj = new Array ();
 cmpObj[0] = new Array ( "#day_info", 75, 375 );
-cmpObj[1] = new Array ( "#evening_info", 2391, 2791 );
+cmpObj[1] = new Array ( "#evening_info", 2591, 3000 );
 cmpObj[2] = new Array ( "#night_info", 4827, 5127 );
 
-var time = new Array ( "day", "evening", "night", "morning" );
+var time = new Array ( "start", "day", "evening", "night", "morning" );
 
 $(document).ready(function(){
     resize();
@@ -98,6 +100,6 @@ $(document).ready(function(){
         for (var k=0; k<cmpObj.length; k++) { compareScroll(cmpObj[k]) };
     });
     for (var i=0; i<time.length; i++) {
-        $("#" + time[i] + "_link").click(function(){ console.log($(this).attr("data-anchor")); goToAnchor( $(this).attr("data-anchor") ) });
+        $("." + time[i] + "_link").click(function(){ console.log($(this).attr("data-anchor")); goToAnchor( $(this).attr("data-anchor") ) });
     };
 });

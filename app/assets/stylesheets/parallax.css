@@ -8,13 +8,17 @@ html, body {
 .big_block {
     height: 100%;
     max-height: 1204px;
-    width: 700px;
+    width: 1000px;
     position: absolute;
-    padding: 125px 150px;
 }
-#after_day { left: 1366px; } 
-#after_evening { left: 3732px; }
-#after_night { left: 6098px; } 
+.big_block .container { 
+    width: 700px;
+    padding: 125px 150px; 
+}
+
+#after_day { left: 1366px; background-color: rgb(171, 225, 250); } 
+#after_evening { left: 3732px; background-color: rgb(252, 212, 210); }
+#after_night { left: 6098px; background-color: rgb(175, 189, 225); } 
 
 .object {
     width: 1366px;
@@ -23,11 +27,11 @@ html, body {
 }
 
 #clouds { background: url(/assets/01_Day_00_Clouds.png) 1200px 50% no-repeat fixed; }
-#swans { background: url(/assets/02_Evening_00_Swans.png) 5998px 50% no-repeat fixed; }
+#swans { background: url(/assets/02_Evening_00_Swans.png) 4498px 50% no-repeat fixed; }
 #moon { background: url(/assets/03_Night_00_Moon.png) 5232px 50% no-repeat fixed; }
-#ufo { background: url(/assets/03_Night_00_UFO.png) 10664px 50% no-repeat fixed; }
+#ufo { background: url(/assets/03_Night_00_UFO.png) 9064px 50% no-repeat fixed; }
 #lilies { height: 104px; width: 277px; background: url(/assets/04_Morning_00_Lilies.png) 0 0 no-repeat; position: absolute; left: 100px; }
-#frog { height: 165px; width: 135px; background: url(/assets/04_Morning_00_Frog.png) 0 0 no-repeat; position: absolute; right: 266px; }
+#frog { height: 165px; width: 135px; background: url(/assets/04_Morning_00_Frog.png) 0 0 no-repeat; position: absolute; right: 120px; }
 
 .sky {
     height: 100%;
@@ -117,7 +121,7 @@ html, body {
 #day_ducks {
     height: 212px;
     position: absolute;
-    background: url(/assets/01_Day_00_Ducks.png) -800px 0 no-repeat fixed;
+    background: url(/assets/01_Day_00_Ducks.png) 50px 0 no-repeat fixed;
     width: 1366px;
 }
 
@@ -153,7 +157,7 @@ html, body {
 }
 .mini_block .image { position: relative; background-repeat: no-repeat; }
 #day_info { left: 400px; }
-#evening_info { left: 2516px; }
+#evening_info { left: 3076px; }
 #night_info { left: 5152px; }
 
 .fixed {
@@ -173,6 +177,11 @@ html, body {
     color: white;
     font-weight: bold;
     text-shadow: 1px 1px 3px #06C;
+}
+#top_link { 
+    display: block; 
+    float: left; 
+    cursor: pointer; 
 }
 
 #buttons_panel {
