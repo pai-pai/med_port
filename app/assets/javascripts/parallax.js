@@ -18,7 +18,7 @@ function resize(){
         for ( var m=0; m<resizables.length; m++ ) { $(resizables[m][0]).css( "background-image", "url(/assets/" + resizables[m][1] + "_small.png)" ); };
         $("#top_link").css({ "height" : "128px", "width" : "128px" });
         $("#buttons_panel a").css({ "background" : "url(/assets/Button_small.png) 0 -30px no-repeat", "padding" : "8px 0 7px 35px", "line-height" : "30px", "height" : "30px" });
-        $("#buttons_panel li").css("margin-bottom", "5px");
+        $("#buttons_panel li").css("margin-bottom", "8px");
         $("#buttons_panel a").hover(function(){ $(this).css("background-position", "0 0") }, function(){ $(this).css("background-position", "0 -30px") });
         $(".mini_block .image").css({ "background-image" : "url(/assets/Badges_small.png)", "height" : "100px", "width" : "100px", "top" : "-50px", "left" : "370px" });
         $("#evening_info .image").css( "background-position", "0 -100px" );
@@ -71,8 +71,8 @@ function goToAnchor(anchor){
 var pxObj = new Array ();
 pxObj[0]  = new Array ( "#clouds", 1200 );
 pxObj[1]  = new Array ( "#swans", 4498 );
-pxObj[2]  = new Array ( "#moon", 5132 );
-pxObj[3]  = new Array ( "#ufo", 9064 );
+pxObj[2]  = new Array ( "#moon", 6765 );
+pxObj[3]  = new Array ( "#ufo", 10416 );
 pxObj[4]  = new Array ( "#night_sky", 0 );
 pxObj[5]  = new Array ( "#day_forest", 0 );
 pxObj[6]  = new Array ( "#evening_forest", 0 );
