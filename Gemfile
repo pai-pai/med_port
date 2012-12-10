@@ -13,7 +13,7 @@ gem "cancan"
 group :production do
   gem "pg"
   gem "thin"
-  gem "therubyracer-heroku"
+  #gem "therubyracer-heroku"
 end
 
 group :assets do
