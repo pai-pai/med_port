@@ -100,6 +100,7 @@ GEM
       less (~> 2.2.0)
     less-rails-bootstrap (2.2.0)
       less-rails (~> 2.2.0)
+    libv8 (3.11.8)
     libwebsocket (0.1.5)
       addressable
     mail (2.4.4)
@@ -221,6 +222,7 @@ DEPENDENCIES
   jquery-rails
   kaminari
   less-rails-bootstrap
+  libv8 (~> 3.11.8)
   oauth2
   pg
   rails (= 3.2.6)
