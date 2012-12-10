@@ -189,7 +189,6 @@ GEM
       sinatra (~> 1.0.0)
     therubyracer (0.11.0)
       ref
-    therubyracer-heroku (0.8.1.pre3)
     thin (1.5.0)
       daemons (>= 1.0.9)
       eventmachine (>= 0.12.6)
@@ -233,6 +232,5 @@ DEPENDENCIES
   sqlite3
   taps (~> 0.3.24)
   therubyracer
-  therubyracer-heroku
   thin
   uglifier (>= 1.0.3)
