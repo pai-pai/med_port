@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 gem "rails", "3.2.6"
 gem "rails-i18n"
 gem "jquery-rails"
-gem "libv8", "~> 3.11.8"
+#gem "libv8", "~> 3.11.8"
 gem "less-rails-bootstrap"
 gem "kaminari"
 gem "devise"
@@ -28,7 +28,7 @@ group :development, :test do
     gem "taps", "~> 0.3.24"
     gem "factory_girl_rails", :require => false
     gem "debugger"
-    gem "therubyracer"
+    #gem "therubyracer"
 end
 
 group :development do
