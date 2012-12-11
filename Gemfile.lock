@@ -100,6 +100,7 @@ GEM
       less (~> 2.2.0)
     less-rails-bootstrap (2.2.0)
       less-rails (~> 2.2.0)
+    libv8 (3.3.10.4)
     libwebsocket (0.1.5)
       addressable
     mail (2.4.4)
@@ -185,6 +186,8 @@ GEM
       rest-client (>= 1.4.0, < 1.7.0)
       sequel (~> 3.20.0)
       sinatra (~> 1.0.0)
+    therubyracer (0.10.2)
+      libv8 (~> 3.3.10)
     thin (1.5.0)
       daemons (>= 1.0.9)
       eventmachine (>= 0.12.6)
@@ -226,5 +229,6 @@ DEPENDENCIES
   sass-rails (~> 3.2.3)
   sqlite3
   taps (~> 0.3.24)
+  therubyracer
   thin
   uglifier (>= 1.0.3)
