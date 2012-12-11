@@ -50,6 +50,8 @@ function resize(){
     $("#lilies").css( "top", winHeight/2 + 89 );
     $("#frog").css( "top", winHeight/2 + 89 - $("#frog").height()/2 );
     $("#day_ducks").css({ "top": winHeight - $("#day_ducks").height(), "background-position": ($("#day_ducks").css("background-position").split(" "))[0] + " " + (winHeight - $("#day_ducks").height()) + "px" });
+    $("#contacts").css({ "margin" : ((winHeight - $("#contacts").height())/3) + "px auto" });
+    console.log( (winHeight - $("#contacts").height())/2 + "px" );
 }
 
 function redraw(obj){
@@ -88,13 +90,27 @@ var cmpObj = new Array ();
 cmpObj[0] = new Array ( "#day_info", 75, 375 );
 cmpObj[1] = new Array ( "#evening_info", 2591, 3000 );
 cmpObj[2] = new Array ( "#night_info", 4827, 5127 );
+cmpObj[3] = new Array ( "#contacts", 7090, 7498 );
 
 var time = new Array ( "start", "day", "evening", "night", "morning" );
 
 $(document).ready(function(){
     resize();
+    $("#speech").delay(2200).fadeIn();
+
     $(window).resize(function() { resize(); });
-    $(document).bind("mousewheel", function(event, delta) { $("body").stop().animate( {scrollLeft: $("body").scrollLeft() + (-70 * delta)}, 200 )});
+    $(document).bind("mousewheel", function(event, delta) { 
+        if ($(window).scrollLeft() > 966 && $(window).scrollLeft() < 2066) {
+            $("body").stop().animate( {scrollLeft: $("body").scrollLeft() + (-70 * delta)}, 50 ); 
+        } else if ($(window).scrollLeft() > 3332 && $(window).scrollLeft() < 4432) {
+            $("body").stop().animate( {scrollLeft: $("body").scrollLeft() + (-70 * delta)}, 50 );
+        } else if ($(window).scrollLeft() > 5698 && $(window).scrollLeft() < 6798) {
+            $("body").stop().animate( {scrollLeft: $("body").scrollLeft() + (-70 * delta)}, 50 );
+        } else {
+            $("body").stop().animate( {scrollLeft: $("body").scrollLeft() + (-70 * delta)}, 200 );
+        };
+        $("#speech").fadeOut("slow"); 
+    });
     $(window).scroll(function() {
         for (var j=0; j<pxObj.length; j++) { redraw(pxObj[j]) };
         for (var k=0; k<cmpObj.length; k++) { compareScroll(cmpObj[k]) };

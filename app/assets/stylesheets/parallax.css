@@ -10,10 +10,13 @@ html, body {
     max-height: 1204px;
     width: 1000px;
     position: absolute;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 .big_block .container { 
     width: 700px;
-    padding: 125px 150px; 
+    padding: 125px 120px 10px 120px; 
+    color: #005DBA;
 }
 
 #after_day { left: 1366px; background-color: rgb(171, 225, 250); } 
@@ -32,7 +35,7 @@ html, body {
 #ufo { background: url(/assets/03_Night_00_UFO.png) 10416px 50% no-repeat fixed; }
 #lilies { height: 104px; width: 277px; background: url(/assets/04_Morning_00_Lilies.png) 0 0 no-repeat; position: absolute; left: 100px; }
 #frog { height: 165px; width: 135px; background: url(/assets/04_Morning_00_Frog.png) 0 0 no-repeat; position: absolute; right: 120px; }
-#frog_link { height: 82px; width: 135px; display: block; cursor: pointer; }
+#frog_link { height: 42px; width: 105px; display: block; cursor: pointer; text-decoration: none; padding-top: 40px; padding-left: 30px; color: white; font-weight: bold; font-size: 1.1em; text-shadow: 1px 1px 3px #06C; }
 
 .sky {
     height: 100%;
@@ -205,4 +208,99 @@ html, body {
     font-size: 12px;
     text-shadow: 1px 1px 3px #06C;
     cursor: pointer;
+}
+#speech {
+    width: 174px;
+    height: 125px;
+    margin-left: 320px;
+    padding-left: 15px;
+    padding-top: 30px;
+    background: url(/assets/Speech_empty.png) 0 0 no-repeat;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    -webkit-background-size: cover;
+    background-size: cover;
+    text-align: center;
+    color: #005DBA;
+    display: none;
+}
+#contacts {
+    height: 440px;
+    width: 510px;
+    background-color: white;
+    opacity: 0.87;
+    filter: alpha(opacity=87);
+    zoom: 1;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    padding: 30px 45px;
+    font-size: 13px;
+    color: #005DBA;
+}
+.container h1 { font-size: 18px; }
+.container p { font-size: 13px; clear: both; line-height: 16px;}
+.bottles {
+    background-color: white;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px; 
+    margin: 0;
+    padding: 4px;
+    height: 220px;
+    text-align: center;
+    clear: both;
+}
+.bottles ul { 
+    margin: 0;
+    padding: 0;
+    list-style-type: none; 
+    clear: both;
+}
+.bottles ul li { float: left; }
+.blue-border { 
+    border: 2px solid #005DBA;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    padding: 8px;
+    width: 250px;
+}
+.red-border {
+    border: 2px solid #cc0000;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    padding: 8px;
+    width: 250px;
+    float: right;
+    clear: both;
+    margin-top: -20px;
+    margin-bottom: 20px;
+}
+.light-blue-border {
+    border: 2px solid #00CCFF;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    padding: 8px;
+    width: 470px;
+    clear: both;
+    margin-top: 20px;
+}
+.blue-back {
+    border: 2px solid white;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    padding: 8px;
+    width: 470px;
+    float: right;
+    clear: both;
+    color: white;
+    margin-top: 20px;
+    background-color: #005DBA;
 }
