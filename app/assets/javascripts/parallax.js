@@ -50,7 +50,7 @@ function resize(){
     $("#lilies").css( "top", winHeight/2 + 89 );
     $("#frog").css( "top", winHeight/2 + 89 - $("#frog").height()/2 );
     $("#day_ducks").css({ "top": winHeight - $("#day_ducks").height(), "background-position": ($("#day_ducks").css("background-position").split(" "))[0] + " " + (winHeight - $("#day_ducks").height()) + "px" });
-    $("#contacts").css({ "margin" : ((winHeight - $("#contacts").height())/3) + "px " + (($(window).width() - $("#contacts").width())/2.65) + "px" });
+    $("#contacts").css({ "top" : ((winHeight - $("#contacts").height())/3) + "px ", "left" : (($(window).width() - $("#contacts").width())/2.2) + "px" });
 }
 
 function redraw(obj){

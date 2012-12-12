@@ -240,6 +240,7 @@ html, body {
     padding: 30px 45px;
     font-size: 13px;
     color: #005DBA;
+    position: fixed;
 }
 .container h1 { font-size: 18px; }
 .container p { font-size: 13px; clear: both; line-height: 16px;}
