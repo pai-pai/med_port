@@ -241,6 +241,7 @@ html, body {
     font-size: 13px;
     color: #005DBA;
     position: fixed;
+    display: none;
 }
 .container h1 { font-size: 18px; }
 .container p { font-size: 13px; clear: both; line-height: 16px;}
