@@ -50,8 +50,7 @@ function resize(){
     $("#lilies").css( "top", winHeight/2 + 89 );
     $("#frog").css( "top", winHeight/2 + 89 - $("#frog").height()/2 );
     $("#day_ducks").css({ "top": winHeight - $("#day_ducks").height(), "background-position": ($("#day_ducks").css("background-position").split(" "))[0] + " " + (winHeight - $("#day_ducks").height()) + "px" });
-    $("#contacts").css({ "margin" : ((winHeight - $("#contacts").height())/3) + "px auto" });
-    console.log( (winHeight - $("#contacts").height())/2 + "px" );
+    $("#contacts").css({ "margin" : ((winHeight - $("#contacts").height())/3) + "px " + (($(window).width() - $("#contacts").width())/2.65) + "px" });
 }
 
 function redraw(obj){
@@ -74,7 +73,7 @@ var pxObj = new Array ();
 pxObj[0]  = new Array ( "#clouds", 1200 );
 pxObj[1]  = new Array ( "#swans", 4498 );
 pxObj[2]  = new Array ( "#moon", 6765 );
-pxObj[3]  = new Array ( "#ufo", 10416 );
+pxObj[3]  = new Array ( "#ufo", 10216 );
 pxObj[4]  = new Array ( "#night_sky", 0 );
 pxObj[5]  = new Array ( "#day_forest", 0 );
 pxObj[6]  = new Array ( "#evening_forest", 0 );
