@@ -48,40 +48,40 @@ html, body {
     background: url(/assets/01_Day_01_Sky.png) 0 50% repeat-x fixed;
     filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='assets/01_Day_01_Sky.png', sizingMethod='scale');
     -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='assets/01_Day_01_Sky.png', sizingMethod='scale')";
-    -moz-background-size: 105%;
-    -o-background-size: 105%;
-    -webkit-background-size: 105%;
-    background-size: 105%;
+    -moz-background-size: 105% 105%;
+    -o-background-size: 105% 105%;
+    -webkit-background-size: 105% 105%;
+    background-size: 105% 105%;
 }
 #evening_sky {
     background: url(/assets/02_Evening_01_Sky.png) 0 50% repeat-x fixed;
     filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='assets/02_Evening_01_Sky.png', sizingMethod='scale');
     -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='assets/02_Evening_01_Sky.png', sizingMethod='scale')";
     left: 2366px;
-    -moz-background-size: 100%;
-    -o-background-size: 100%;
-    -webkit-background-size: 100%;
-    background-size: 100%;
+    -moz-background-size: 100% 100%;
+    -o-background-size: 100% 100%;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
 }
 #night_sky {
     background: url(/assets/03_Night_01_Sky.png) 0 50% repeat-x fixed;
     filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='assets/03_Night_01_Sky.png', sizingMethod='scale');
     -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='assets/03_Night_01_Sky.png', sizingMethod='scale')";
     left: 4732px;
-    -moz-background-size: 105%;
-    -o-background-size: 105%;
-    -webkit-background-size: 105%;
-    background-size: 105%;
+    -moz-background-size: 105% 105%;
+    -o-background-size: 105% 105%;
+    -webkit-background-size: 105% 105%;
+    background-size: 105% 105%;
 }
 #morning_sky {
     background: url(/assets/04_Morning_01_Sky.png) 0 50% repeat-x fixed;
     filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='assets/04_Morning_01_Sky.png', sizingMethod='scale');
     -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='assets/04_Morning_01_Sky.png', sizingMethod='scale')";
     left: 7098px;
-    -moz-background-size: 105%;
-    -o-background-size: 105%;
-    -webkit-background-size: 105%;
-    background-size: 105%;
+    -moz-background-size: 105% 105%;
+    -o-background-size: 105% 105%;
+    -webkit-background-size: 105% 105%;
+    background-size: 105% 105%;
 }
 
 .forest {
