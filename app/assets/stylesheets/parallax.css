@@ -113,15 +113,15 @@ html, body {
 }
 #evening_trees {
     height: 392px;
-    background: url(/assets/02_Evening_03_Trees.png) 2913px 0 no-repeat fixed; 
+    background: url(/assets/02_Evening_03_Trees_2.png) 2313px 0 no-repeat fixed; 
 }
 #night_trees {
     height: 391px;
-    background: url(/assets/03_Night_03_Trees.png) 6373px 0 no-repeat fixed;
+    background: url(/assets/03_Night_03_Trees_2.png) 5626px 0 no-repeat fixed;
 }
 #morning_trees {
     height: 280px;
-    background: url(/assets/04_Morning_03_Trees.png) 9286px 0 no-repeat fixed;
+    background: url(/assets/04_Morning_03_Trees_2.png) 8539px 0 no-repeat fixed;
 }
 
 .fore {

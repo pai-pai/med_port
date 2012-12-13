@@ -87,9 +87,9 @@ pxObj[6]  = new Array ( "#evening_forest", 0 );
 pxObj[7]  = new Array ( "#night_forest", 0 );
 pxObj[8]  = new Array ( "#morning_forest", 0 );
 pxObj[9]  = new Array ( "#day_trees", 0 );
-pxObj[10] = new Array ( "#evening_trees", 2766 );
-pxObj[11] = new Array ( "#night_trees", 6079 );
-pxObj[12] = new Array ( "#morning_trees", 8992 );
+pxObj[10] = new Array ( "#evening_trees", 2313 );
+pxObj[11] = new Array ( "#night_trees", 5626 );
+pxObj[12] = new Array ( "#morning_trees", 8539 );
 pxObj[13] = new Array ( "#day_ducks", 50, "right");
 
 var cmpObj = new Array ();
