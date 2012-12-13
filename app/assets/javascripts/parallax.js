@@ -17,6 +17,7 @@ function resize(){
     if (winHeight < 900) {
         for ( var m=0; m<resizables.length; m++ ) { $(resizables[m][0]).css( "background-image", "url(/assets/" + resizables[m][1] + "_small.png)" ); };
         $("#top_link").css({ "height" : "128px", "width" : "128px" });
+        $("#top_info").css( "height", "129px" );
         $("#buttons_panel a").css({ "background" : "url(/assets/Button_small.png) 0 -30px no-repeat", "padding" : "8px 0 7px 35px", "line-height" : "30px", "height" : "30px" });
         $("#buttons_panel li").css("margin-bottom", "8px");
         $("#buttons_panel a").hover(function(){ $(this).css("background-position", "0 0") }, function(){ $(this).css("background-position", "0 -30px") });
@@ -26,6 +27,7 @@ function resize(){
         $(".mini_block .stoper").css({ "height" : "50px", "width" : "50px" });
     } else {
         for ( var m=0; m<resizables.length; m++ ) { $(resizables[m][0]).css( "background-image", "url(/assets/" + resizables[m][1] + ".png)" ); };
+        $("#top_info").css( "height", "194px" );
         $("#top_link").css({ "height" : "192px", "width" : "192px" });
         $("#buttons_panel a").css({ "background" : "url(/assets/Button.png) 0 -45px no-repeat", "padding" : "16px 0 16px 55px", "line-height" : "46px", "height" : "45px" });
         $("#buttons_panel li").css("margin-bottom", "10px");
@@ -66,7 +68,12 @@ function compareScroll(obj){
 }
 
 function goToAnchor(anchor){
-    $("body").animate( { scrollLeft: $("a[name='" + anchor + "']").offset().left }, "slow" );
+    if (anchor == "morning") {
+        $("body").animate( { scrollLeft: 8454 - $(window).width() }, "slow" );
+        console.log( 8454 - $(window).width() );
+    } else {
+        $("body").animate( { scrollLeft: $("a[name='" + anchor + "']").offset().left }, "slow" );
+    }
 }
 
 var pxObj = new Array ();
@@ -89,7 +96,7 @@ var cmpObj = new Array ();
 cmpObj[0] = new Array ( "#day_info", 75, 375 );
 cmpObj[1] = new Array ( "#evening_info", 2591, 3000 );
 cmpObj[2] = new Array ( "#night_info", 4827, 5127 );
-cmpObj[3] = new Array ( "#contacts", 7090, 7498 );
+cmpObj[3] = new Array ( "#contacts", 8444 - $(window).width(), 7498 );
 
 var time = new Array ( "start", "day", "evening", "night", "morning" );
 
